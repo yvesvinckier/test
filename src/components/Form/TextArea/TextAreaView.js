@@ -6,7 +6,10 @@ import styles from '../Inputs/styles.module.scss'
 export default function TextAreaView({ children, error, inputProps }) {
   return (
     <div className={styles.container}>
-      <label htmlFor={inputProps.id} className={error ? styles.labelInvalid : styles.label}>
+      <label
+        htmlFor={inputProps.id}
+        className={error ? styles.labelInvalid : styles.label}
+      >
         {children}
         <AutoTextArea
           className={styles.input}

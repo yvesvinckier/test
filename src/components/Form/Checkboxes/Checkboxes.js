@@ -20,7 +20,7 @@ export default class Checkboxes extends InputBase {
 
   isValid = () => {
     const { children, required } = this.props
-    if (required && children.some(item => (this.getValue(item.id)))) {
+    if (required && children.some(item => this.getValue(item.id))) {
       this.setState({ error: null, serverError: null, invalid: false })
       return true
     } else {
@@ -30,7 +30,7 @@ export default class Checkboxes extends InputBase {
     }
   }
 
-  getValue = (id) => {
+  getValue = id => {
     const { formId, store } = this.props
     if (store[formId] && store[formId].fields[id]) {
       return store[formId].fields[id]
@@ -44,7 +44,7 @@ export default class Checkboxes extends InputBase {
     this.props.set(formId, id, value)
   }
 
-  onChange = (event) => {
+  onChange = event => {
     const id = event.target.id
     const value = event.target.checked ? event.target.value : ''
     this.setValue(value, id)
@@ -64,7 +64,12 @@ export default class Checkboxes extends InputBase {
     const { children } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={this.inputProps} checkboxes={children} getValue={this.getValue}>
+      <View
+        error={error || serverError}
+        inputProps={this.inputProps}
+        checkboxes={children}
+        getValue={this.getValue}
+      >
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>

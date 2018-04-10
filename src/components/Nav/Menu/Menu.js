@@ -25,8 +25,14 @@ export default class Menu extends PureComponent {
     if (this.animaton) this.animaton.kill()
     this.links = this.list.children
     this.animaton = new TimelineMax({ paused: true })
-    .fromTo(this.menu, 0.25, { x: '100%' }, { x: '0%' })
-    .staggerFromTo(this.links, 0.25, { opacity: 0 }, { opacity: 1, ease: Power2.easeIn }, 0.15)
+      .fromTo(this.menu, 0.25, { x: '100%' }, { x: '0%' })
+      .staggerFromTo(
+        this.links,
+        0.25,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeIn },
+        0.15
+      )
   }
 
   open() {
@@ -38,7 +44,9 @@ export default class Menu extends PureComponent {
   }
 
   refName(name) {
-    return (c) => { this[name] = c }
+    return c => {
+      this[name] = c
+    }
   }
 
   render() {

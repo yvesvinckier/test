@@ -1,11 +1,14 @@
 import { createReducer, createTypes } from 'reduxsauce'
 
-export const Types = createTypes(`
+export const Types = createTypes(
+  `
     INIT
     TOGGLE
     OPEN
     CLOSE
-  `, { prefix: '@@app/nav/' })
+  `,
+  { prefix: '@@app/nav/' }
+)
 
 export const toggle = () => ({ type: Types.TOGGLE })
 export const open = () => ({ type: Types.OPEN })

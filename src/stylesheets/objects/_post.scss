@@ -1,0 +1,125 @@
+/* ------- *
+*   Post   *
+* ------- */
+
+.post {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.post-cover {
+    width: 100%;
+    margin: 0 0 -50px 0;
+    @include bp(medium) {
+      margin: 0 0 -10vh 0;
+    }
+    div { max-height: 750px; }
+    h1 {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 1.75em;
+      font-weight: 700;
+      z-index: 2;
+      color: white;
+      @include bp(medium) {
+        font-size: 3.5em;
+      }
+    }
+    &:before {
+      content: '';
+      background: rgba(0,0,0,.2);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 89.6%;
+      width: 100%;
+      z-index: 1;
+    }
+}
+
+.post-images {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 1em;
+    margin: 0 auto 2em;
+    @include bp(medium){
+      padding: 0 2em;
+    }
+    .gatsby-image-outer-wrapper {
+      margin: 0 0 1em 0;
+    }
+    li {
+      clear: right;
+    }
+    .left {
+      @include bp(medium){
+        float: left;
+        width: 50%;
+        border-right: .5em solid white;
+      }
+    }
+    .right {
+      @include bp(medium){
+        float: right;
+        width: 50%;
+        border-left: .5em solid white;
+      }
+    }
+}
+
+.post-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: calc(100% - 2em);
+    max-width: 1000px;
+    padding: 2em;
+    margin: 0 1em;
+    background: white;
+    position: relative;
+    z-index: 3;
+    @include bp(medium){
+      padding: 3em 2em;
+      margin: 0 2em;
+      width: calc(100% - 4em);
+    }
+  }
+
+  .post-info__left {
+    margin: 0 0 1em 0;
+    width: 100%;
+    @include bp(medium){
+      margin: 0;
+      flex: 0 1 33%;
+    }
+  }
+  
+  .post-info__right {
+    width: 100%;
+    @include bp(medium){
+      flex: 0 1 65%;
+    }
+  }
+
+  .post-info-title {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 0 0 .5em 0;
+    position: relative;
+    z-index: 2;
+    text-transform: capitalize;
+  }
+
+  .post-category {
+    display: inline-block;
+    text-transform: capitalize;
+  }

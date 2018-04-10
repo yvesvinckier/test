@@ -33,7 +33,7 @@ export default class Radios extends InputBase {
     this.props.set(formId, id, value)
   }
 
-  onChange = (event) => {
+  onChange = event => {
     const value = event.target.checked ? event.target.value : ''
     this.setValue(value)
   }
@@ -53,7 +53,12 @@ export default class Radios extends InputBase {
     const { children } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={this.inputProps} radios={children} value={this.value}>
+      <View
+        error={error || serverError}
+        inputProps={this.inputProps}
+        radios={children}
+        value={this.value}
+      >
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>

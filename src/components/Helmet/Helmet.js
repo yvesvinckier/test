@@ -22,7 +22,7 @@ export default class Helmet extends PureComponent {
       <ReactHelmet
         title={title}
         meta={[
-          {'name': 'description', 'content': description},
+          { name: 'description', content: description },
           { name: 'og:title', content: title },
           { name: 'og:description', content: description },
           { name: 'twitter:title', content: title },

@@ -18,8 +18,6 @@ export default class Link extends Component {
 
   render() {
     const { children, ...rest } = this.props
-    return (
-      <GatsbyLink {...rest}>{children}</GatsbyLink>
-    )
+    return <GatsbyLink {...rest}>{children}</GatsbyLink>
   }
 }

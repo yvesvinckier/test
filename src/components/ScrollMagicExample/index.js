@@ -19,12 +19,20 @@ export default class ScrollMagicExample extends PureComponent {
     console.log(styles['break-xlarge'])
     console.log(styles['nav-menu-break'])
 
-    this.animation = new TimelineMax({ paused: true })
-      .fromTo(this.node, 5, { opacity: 0 }, { opacity: 1 })
+    this.animation = new TimelineMax({ paused: true }).fromTo(
+      this.node,
+      5,
+      { opacity: 0 },
+      { opacity: 1 }
+    )
     this.animation.play()
 
-    this.scrollAnim = new TimelineMax({ paused: true })
-      .fromTo(this.title, 5, { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
+    this.scrollAnim = new TimelineMax({ paused: true }).fromTo(
+      this.title,
+      5,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0 }
+    )
 
     this.scene = new Scene({ triggerElement: this.title, triggerHook: 0.4 })
     this.scene.indicatorName = 'Test'
@@ -38,11 +46,11 @@ export default class ScrollMagicExample extends PureComponent {
   }
 
   // Binding
-  refNode = (c) => {
+  refNode = c => {
     this.node = c
   }
 
-  refTitle= (c) => {
+  refTitle = c => {
     this.title = c
   }
 

@@ -25,7 +25,12 @@ export default class Alert extends Component {
   render() {
     const { children } = this.props
     return (
-      <div className={styles.container} ref={c => { this.container = c }}>
+      <div
+        className={styles.container}
+        ref={c => {
+          this.container = c
+        }}
+      >
         An Error has Occured: <br />
         <span dangerouslySetInnerHTML={{ __html: ` (${children})` }} />
       </div>

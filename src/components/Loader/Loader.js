@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 
 const TIMEOUT = 0.25
 
 export default class Loader extends Component {
   static propTypes = {
-    children: PropTypes.any,
+    // children: PropTypes.any,
   }
 
   state = {
@@ -14,7 +14,8 @@ export default class Loader extends Component {
   }
 
   componentDidMount() {
-    TweenMax.to(this.node, TIMEOUT, { opacity: 0,
+    TweenMax.to(this.node, TIMEOUT, {
+      opacity: 0,
       onComplete: () => {
         this.setState({ loaded: true })
       },
@@ -24,7 +25,12 @@ export default class Loader extends Component {
   render() {
     if (this.state.loaded) return false
     return (
-      <div className={styles.wrapper} ref={c => { this.node = c }}>
+      <div
+        className={styles.wrapper}
+        ref={c => {
+          this.node = c
+        }}
+      >
         <div className={styles.container}>
           <div className={styles.loadText}>
             <div className={styles.letter}>G</div>

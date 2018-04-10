@@ -14,7 +14,11 @@ export default class Submitted extends Component {
     const { children } = this.props
     const Comp = children
     return (
-      <div ref={c => { this.container = c }}>
+      <div
+        ref={c => {
+          this.container = c
+        }}
+      >
         <Comp />
       </div>
     )

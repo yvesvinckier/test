@@ -24,7 +24,7 @@ export default class AnimationScroll extends Component {
     scrollmagic: PropTypes.any,
   }
 
-  static count = 0;
+  static count = 0
 
   animRefs = []
   scenes = []
@@ -42,10 +42,14 @@ export default class AnimationScroll extends Component {
       const node = findDOMNode(ref)
       const delay = window.innerWidth < 640 ? 0 : this.props.delay
       const type = types[index] || types[types.length - 1]
-      const animation = TweenMax.fromTo(node, duration,
+      const animation = TweenMax.fromTo(
+        node,
+        duration,
         animations[type].from,
-        animations[type].to,
-      ).pause().delay(delay * index)
+        animations[type].to
+      )
+        .pause()
+        .delay(delay * index)
 
       const scene = new Scene({
         triggerElement: node,
@@ -65,12 +69,23 @@ export default class AnimationScroll extends Component {
 
   componentWillUnmount() {
     AnimationScroll.count--
-    this.scenes.forEach(scene => { scene.destroy() })
+    this.scenes.forEach(scene => {
+      scene.destroy()
+    })
   }
 
   get children() {
     return Children.map(this.props.children, (child, key) => {
-      return <RefWrapper key={key} ref={c => { this.animRefs.push(c) }}>{child}</RefWrapper>
+      return (
+        <RefWrapper
+          key={key}
+          ref={c => {
+            this.animRefs.push(c)
+          }}
+        >
+          {child}
+        </RefWrapper>
+      )
     })
   }
 

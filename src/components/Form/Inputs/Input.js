@@ -17,6 +17,7 @@ export default class TextInput extends Component {
     set: PropTypes.func,
     store: PropTypes.object,
     validator: PropTypes.string,
+    width: PropTypes.string,
   }
 
   static defaultProps = {
@@ -51,15 +52,17 @@ export default class TextInput extends Component {
     if (fieldError) this.setState({ serverError: fieldError.ErrorText })
   }
 
-  get isInput() { return true }
+  get isInput() {
+    return true
+  }
 
-  onChange = (event) => {
+  onChange = event => {
     const value = event.target.value
     if (this.state.invalid) this.isValid(value)
     this.setValue(value)
   }
 
-  onBlur = (event) => {
+  onBlur = event => {
     this.isValid()
   }
 
@@ -68,10 +71,14 @@ export default class TextInput extends Component {
     this.props.set(formId, id, value)
   }
 
-  isValid = (value) => {
+  isValid = value => {
     const { required } = this.props
     if (required && !this.validator.regEx.test(value || this.value)) {
-      this.setState({ error: this.validator.error, serverError: null, invalid: true })
+      this.setState({
+        error: this.validator.error,
+        serverError: null,
+        invalid: true,
+      })
       return false
     } else {
       this.setState({ error: null, serverError: null, invalid: false })
@@ -123,7 +130,11 @@ export default class TextInput extends Component {
     const { width } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={this.inputProps} width={width}>
+      <View
+        error={error || serverError}
+        inputProps={this.inputProps}
+        width={width}
+      >
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>

@@ -1,20 +1,32 @@
 import { createReducer, createTypes } from 'reduxsauce'
 import analytics from 'analytics'
 
-export const Types = createTypes(`
+export const Types = createTypes(
+  `
     HONEYPOTTED
     INIT
     REGISTER
     SET
     SUBMIT
     SUBMITTED
-  `, { prefix: '@@app/forms/' })
+  `,
+  { prefix: '@@app/forms/' }
+)
 
-export const register = (id) => ({ type: Types.REGISTER, id })
+export const register = id => ({ type: Types.REGISTER, id })
 export const submit = (formId, data) => ({ type: Types.SUBMIT, formId, data })
-export const submitted = (formId, data) => ({ type: Types.SUBMITTED, formId, data })
-export const set = (formId, id, value) => ({ type: Types.SET, formId, id, value })
-export const honeypotted = (formId) => ({ type: Types.HONEYPOTTED, formId })
+export const submitted = (formId, data) => ({
+  type: Types.SUBMITTED,
+  formId,
+  data,
+})
+export const set = (formId, id, value) => ({
+  type: Types.SET,
+  formId,
+  id,
+  value,
+})
+export const honeypotted = formId => ({ type: Types.HONEYPOTTED, formId })
 
 const INITIAL_STATE = {}
 

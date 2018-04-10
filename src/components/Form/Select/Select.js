@@ -14,10 +14,12 @@ export default class Select extends InputBase {
   }
 
   componentDidMount() {
-    this.setValue(this.value || this.props.defaultValue || (this.props.multiple ? [] : ''))
+    this.setValue(
+      this.value || this.props.defaultValue || (this.props.multiple ? [] : '')
+    )
   }
 
-  isValid = (value) => {
+  isValid = value => {
     const { required } = this.props
     value = value || this.value
     if (required && (!value || value.length <= 0)) {
@@ -29,7 +31,7 @@ export default class Select extends InputBase {
     }
   }
 
-  onChange = (event) => {
+  onChange = event => {
     let value
     if (this.props.multiple) {
       value = []
@@ -54,7 +56,12 @@ export default class Select extends InputBase {
     const { children, width } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={{...this.inputProps, ...this.selectProps}} options={children} width={width}>
+      <View
+        error={error || serverError}
+        inputProps={{ ...this.inputProps, ...this.selectProps }}
+        options={children}
+        width={width}
+      >
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>

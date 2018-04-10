@@ -9,11 +9,13 @@ function * fetchSubmit(action) {
     yield put(Actions.submitted(action.formId, data))
   } catch (error) {
     Logger.error(error)
-    yield put(Actions.submitted(action.formId, {
-      formId: action.id,
-      msg: error.message,
-      name: error.name,
-    }))
+    yield put(
+      Actions.submitted(action.formId, {
+        formId: action.id,
+        msg: error.message,
+        name: error.name,
+      })
+    )
   }
 }
 

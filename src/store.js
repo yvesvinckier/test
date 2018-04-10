@@ -13,11 +13,7 @@ export default function configureStore(initialState = {}) {
   if (typeof window !== 'undefined' && window.devToolsExtension) {
     enhancers.push(window.devToolsExtension())
   }
-  const store = createStore(
-    reducer,
-    initialState,
-    compose(...enhancers),
-  )
+  const store = createStore(reducer, initialState, compose(...enhancers))
 
   sagaMiddleware.run(saga)
 

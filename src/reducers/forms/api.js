@@ -7,8 +7,8 @@ export default class API {
       'Content-Type': 'application/json',
     }
     const body = {
-      'hash': action.formId,
-      'form': API.parseFields(action.data),
+      hash: action.formId,
+      form: API.parseFields(action.data),
     }
     API.debug('/api/form?token=')
 

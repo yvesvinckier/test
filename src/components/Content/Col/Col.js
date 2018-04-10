@@ -19,10 +19,7 @@ export default function Col({ children, noPadding, order, relative, size }) {
 Col.propTypes = {
   children: PropTypes.any,
   noPadding: PropTypes.bool,
-  order: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   relative: PropTypes.bool,
   size: PropTypes.oneOf(['half', 'one-third', 'two-third', 'full']),
 }

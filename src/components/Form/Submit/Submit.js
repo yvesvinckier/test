@@ -31,12 +31,15 @@ export default class Submit extends Component {
     const { children } = this.props
     return (
       <div className={styles.container}>
-        {this.form && !this.form.submitted && <input
-          className={styles.input}
-          disabled={this.form && this.form.fetching}
-          type='submit'
-          value={children}
-        />}
+        {this.form &&
+          !this.form.submitted && (
+            <input
+              className={styles.input}
+              disabled={this.form && this.form.fetching}
+              type='submit'
+              value={children}
+            />
+          )}
         {this.form && this.form.submitted && this.submitted}
         {this.form && this.form.fetching && <Spinner />}
       </div>

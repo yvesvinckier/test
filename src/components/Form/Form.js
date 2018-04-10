@@ -19,7 +19,9 @@ export default class Form extends Component {
   }
 
   state = {
-    exited: this.props.store[this.props.id] && this.props.store[this.props.id].submitted,
+    exited:
+      this.props.store[this.props.id] &&
+      this.props.store[this.props.id].submitted,
   }
 
   componentDidMount() {
@@ -44,9 +46,9 @@ export default class Form extends Component {
   }
 
   inputs = []
-  static htmlTags =['input', 'div', 'h1', 'h2', 'h3', 'p', 'ul']
+  static htmlTags = ['input', 'div', 'h1', 'h2', 'h3', 'p', 'ul']
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault()
     if (this.honeypot.value) {
       this.props.honeypotted(this.props.id)
@@ -70,10 +72,10 @@ export default class Form extends Component {
     })
   }
 
-  refInputs = (c) => {
+  refInputs = c => {
     if (c && c.getWrappedInstance) {
       const instance = c.getWrappedInstance()
-      if (instance.isInput && !includes(this.inputs, instance)) this.inputs.push(instance)
+      if (instance.isInput && !includes(this.inputs, instance)) { this.inputs.push(instance) }
     }
   }
 
@@ -82,27 +84,35 @@ export default class Form extends Component {
     const { exited } = this.state
     return (
       <div>
-        {store[id] && store[id].error && <Alert>{store[id].error.ErrorText}</Alert>}
-        {!exited && <form
-          acceptCharset='UTF-8'
-          action={this.props.action}
-          encType='multipart/form-data'
-          id={this.props.id}
-          method='post'
-          name={this.props.id}
-          noValidate
-          onSubmit={this.onSubmit}
-          ref={c => { this.form = c }}
-        >
-          {this.children}
-          <input
-            ref={c => { this.honeypot = c }}
-            size='25'
-            style={{ display: 'none' }}
-            type='text'
-          />
-        </form>}
-        {exited && submittedElement && <Submitted>{submittedElement}</Submitted>}
+        {store[id] &&
+          store[id].error && <Alert>{store[id].error.ErrorText}</Alert>}
+        {!exited && (
+          <form
+            acceptCharset='UTF-8'
+            action={this.props.action}
+            encType='multipart/form-data'
+            id={this.props.id}
+            method='post'
+            name={this.props.id}
+            noValidate
+            onSubmit={this.onSubmit}
+            ref={c => {
+              this.form = c
+            }}
+          >
+            {this.children}
+            <input
+              ref={c => {
+                this.honeypot = c
+              }}
+              size='25'
+              style={{ display: 'none' }}
+              type='text'
+            />
+          </form>
+        )}
+        {exited &&
+          submittedElement && <Submitted>{submittedElement}</Submitted>}
       </div>
     )
   }

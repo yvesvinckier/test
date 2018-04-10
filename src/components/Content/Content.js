@@ -8,9 +8,7 @@ export default function Content({ children, relative, padding }) {
   const className = styles[padding]
   return (
     <div className={className}>
-      <Row relative={relative}>
-        {children}
-      </Row>
+      <Row relative={relative}>{children}</Row>
     </div>
   )
 }
@@ -18,12 +16,7 @@ export default function Content({ children, relative, padding }) {
 Content.propTypes = {
   children: PropTypes.any,
   relative: PropTypes.bool,
-  padding: PropTypes.oneOf([
-    'small',
-    'medium',
-    'large',
-    'xlarge',
-  ]),
+  padding: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 }
 
 Content.defaultProps = {

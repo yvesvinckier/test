@@ -9,9 +9,10 @@ export default class ImageBackground extends PureComponent {
 
   render() {
     const { src, style, ...rest } = this.props
-    const mergedStyle = Object.assign({ backgroundImage: `url('${src}')` }, style)
-    return (
-      <div style={mergedStyle} {...rest} />
+    const mergedStyle = Object.assign(
+      { backgroundImage: `url('${src}')` },
+      style
     )
+    return <div style={mergedStyle} {...rest} />
   }
 }

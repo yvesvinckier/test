@@ -1,6 +1,7 @@
 var cssnext = require('postcss-cssnext')
 var cssreporter = require('postcss-reporter')
 var config = require('./src/config')
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -9,12 +10,21 @@ module.exports = {
   },
   plugins: [
     // Turn on offline before deploy
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    'gatsby-plugin-styled-components',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-react-next`,
+    'gatsby-transformer-remark',
     'gatsby-plugin-resolve-src',
     `gatsby-plugin-sitemap`,
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {

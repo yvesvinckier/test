@@ -9,7 +9,7 @@ export default class Title extends PureComponent {
     toggle: PropTypes.func,
   }
 
-  onClick = (event) => {
+  onClick = event => {
     this.props.toggle()
   }
 

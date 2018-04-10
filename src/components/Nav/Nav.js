@@ -33,22 +33,22 @@ export default class Nav extends Component {
     }
   }
 
-  onScroll = (event) => {
+  onScroll = event => {
     if (this.props.opened) {
       event.preventDefault()
       return false
     }
   }
 
-  toggle = () => { this.props.toggle() }
+  toggle = () => {
+    this.props.toggle()
+  }
 
   render() {
     return (
       <nav className={styles.nav}>
         <Bar opened={this.props.opened} toggle={this.toggle} />
-        <Menu opened={this.props.opened}>
-          {content.nav.links}
-        </Menu>
+        <Menu opened={this.props.opened}>{content.nav.links}</Menu>
       </nav>
     )
   }

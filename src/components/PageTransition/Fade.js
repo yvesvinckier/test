@@ -17,22 +17,27 @@ export default class Fade extends PureComponent {
 
   // Required
   onEntered = (node, isAppearing) => {
-    TweenMax.to(this.node, this.props.timeout / 1000, { opacity: 0, display: 'none' })
+    TweenMax.to(this.node, this.props.timeout / 1000, {
+      opacity: 0,
+      display: 'none',
+    })
   }
 
   // Required
   onExiting = () => {
-    TweenMax.fromTo(this.node, this.props.timeout / 1000,
+    TweenMax.fromTo(
+      this.node,
+      this.props.timeout / 1000,
       { opacity: 0, display: 'none' },
       { opacity: 1, display: 'block' }
     )
   }
 
-  refNode = (c) => { this.node = c }
+  refNode = c => {
+    this.node = c
+  }
 
   render() {
-    return (
-      <div ref={this.refNode} className={styles.fade} />
-    )
+    return <div ref={this.refNode} className={styles.fade} />
   }
 }

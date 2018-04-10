@@ -14,9 +14,7 @@ export default function Banner({ children, sizes }) {
           style={{ position: `absolute`, zIndex: '-1' }}
         />
         <div className={styles.container}>
-          <div className={styles.content}>
-            {children}
-          </div>
+          <div className={styles.content}>{children}</div>
         </div>
       </div>
       <ScrollDown />

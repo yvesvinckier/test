@@ -8,8 +8,12 @@ function mapStateToProps({ forms }) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    set: (formId, id, value) => { dispatch(Actions.set(formId, id, value)) },
+    set: (formId, id, value) => {
+      dispatch(Actions.set(formId, id, value))
+    },
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(Radios)
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+  withRef: true,
+})(Radios)

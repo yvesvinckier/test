@@ -16,10 +16,16 @@ export default class Section extends PureComponent {
   }
 
   componentDidMount() {
-    this.animation = new TimelineMax({ paused: true })
-    .from(this.node, 0.25, { height: 0, clearProps: 'height' })
+    this.animation = new TimelineMax({ paused: true }).from(this.node, 0.25, {
+      height: 0,
+      clearProps: 'height',
+    })
 
-    if (this.state.opened) setTimeout(() => { this.animation.play() }, 5)
+    if (this.state.opened) {
+      setTimeout(() => {
+        this.animation.play()
+      }, 5)
+    }
   }
 
   toggle = () => {
@@ -46,10 +52,13 @@ export default class Section extends PureComponent {
     const opened = this.opened
     return (
       <div className={styles.wrapper}>
-        <div>
-          {cloneElement(children[0], { toggle: this.toggle, opened })}
-        </div>
-        <div ref={c => { this.node = c }} style={{ overflow: 'hidden' }}>
+        <div>{cloneElement(children[0], { toggle: this.toggle, opened })}</div>
+        <div
+          ref={c => {
+            this.node = c
+          }}
+          style={{ overflow: 'hidden' }}
+        >
           {children[1]}
         </div>
       </div>

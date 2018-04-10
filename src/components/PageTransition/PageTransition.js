@@ -8,7 +8,9 @@ const historyExitingEventType = `history::exiting`
 
 /* globals window CustomEvent */
 export const getUserConfirmation = (pathname, callback) => {
-  const event = new CustomEvent(historyExitingEventType, { detail: { pathname } })
+  const event = new CustomEvent(historyExitingEventType, {
+    detail: { pathname },
+  })
   window.dispatchEvent(event)
   setTimeout(() => {
     callback(true)
@@ -30,10 +32,11 @@ export default class PageTransition extends Component {
 
   listenerHandler(event) {
     if (this.props.location.pathname === event.detail.pathname) return false
-    const nextPageResources = this.props.loader.getResourcesForPathname(
-      event.detail.pathname,
-      nextPageResources => this.setState({ nextPageResources })
-    ) || {}
+    const nextPageResources =
+      this.props.loader.getResourcesForPathname(
+        event.detail.pathname,
+        nextPageResources => this.setState({ nextPageResources })
+      ) || {}
     this.setState({ exiting: true, nextPageResources })
   }
 
@@ -51,7 +54,9 @@ export default class PageTransition extends Component {
     }
   }
 
-  refNode = (c) => { this.node = c }
+  refNode = c => {
+    this.node = c
+  }
 
   render() {
     const transitionProps = {
@@ -59,7 +64,8 @@ export default class PageTransition extends Component {
         enter: 0,
         exit: timeout,
       },
-      onEntering: (node, isAppearing) => this.node.onEntering(node, isAppearing),
+      onEntering: (node, isAppearing) =>
+        this.node.onEntering(node, isAppearing),
       onEntered: (node, isAppearing) => this.node.onEntered(node, isAppearing),
       onExiting: () => this.node.onExiting(),
       appear: true,
@@ -68,18 +74,23 @@ export default class PageTransition extends Component {
     }
     return (
       <Transition {...transitionProps}>
-        {
-          (status) => {
-            return ([
-              createPortal(<CurrentTransition key='page-transition-portal' ref={this.refNode} timeout={timeout} />, document.body),
-              createElement(this.props.pageResources.component, {
-                ...this.props,
-                ...this.props.pageResources.json,
-                key: 'route-content',
-              }),
-            ])
-          }
-        }
+        {status => {
+          return [
+            createPortal(
+              <CurrentTransition
+                key='page-transition-portal'
+                ref={this.refNode}
+                timeout={timeout}
+              />,
+              document.body
+            ),
+            createElement(this.props.pageResources.component, {
+              ...this.props,
+              ...this.props.pageResources.json,
+              key: 'route-content',
+            }),
+          ]
+        }}
       </Transition>
     )
   }

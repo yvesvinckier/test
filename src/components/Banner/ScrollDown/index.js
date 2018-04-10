@@ -15,7 +15,9 @@ export default class ScrollDown extends Component {
 
     this.scene = new Scene({ triggerElement: this.node, triggerHook: 0.7 })
     this.scene.indicatorName = 'ScrollDown'
-    this.scene.on('enter', () => { this.animation.play() })
+    this.scene.on('enter', () => {
+      this.animation.play()
+    })
 
     if (process.env.NODE_ENV === 'development') {
       this.scene.addIndicators({ name: this.scene.indicatorName })
@@ -27,7 +29,12 @@ export default class ScrollDown extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <div className={styles.scrolldown} ref={c => { this.node = c }}>
+        <div
+          className={styles.scrolldown}
+          ref={c => {
+            this.node = c
+          }}
+        >
           <p className={styles.scrollText}>Scroll Down</p>
           <svg className={styles.svg} viewBox='0 0 24 24'>
             <path d='M6 9l6 6 6-6' />
