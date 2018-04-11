@@ -27,7 +27,7 @@ exports.replaceRouterComponent = ({ history }) => {
   const store = createStore(initialState)
 
   const ConnectedRouterWrapper = ({ children }) => (
-    <Provider store={store(initialState)}>
+    <Provider store={store}>
       <Router history={history}>{children}</Router>
     </Provider>
   )
