@@ -11,7 +11,6 @@ module.exports = {
   plugins: [
     // Turn on offline before deploy
     `gatsby-plugin-offline`,
-    'gatsby-plugin-styled-components',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-react-next`,
     'gatsby-transformer-remark',
