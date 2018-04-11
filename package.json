@@ -81,7 +81,7 @@
   "scripts": {
     "start": "gatsby develop -p 3000",
     "serve": "http-server ./public -p 8000",
-    "build": "gatsby build",
+    "build": "gatsby build && npm run build:post",
     "build:post": "node scripts",
     "develop": "gatsby develop -p 3000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
