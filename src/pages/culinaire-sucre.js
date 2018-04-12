@@ -66,10 +66,12 @@ const CulinaireSucre = ({ data }) => {
 export const query = graphql`
   query CulinaireSucreQuery {
     allContentfulGallery(
-      filter: { node_locale: { eq: "fr-FR" } }
-      limit: 1000
-      sort: { fields: [date], order: DESC }
-    ) {
+        filter: {
+            node_locale: {eq: "fr-FR"},
+            category: {title: {eq: "Culinaire sucré"}}
+        },
+        limit: 1000, 
+        sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
