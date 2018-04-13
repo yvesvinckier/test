@@ -68,7 +68,7 @@ export const query = graphql`
     allContentfulGallery(
         filter: {
             node_locale: {eq: "fr-FR"},
-            category: {title: {eq: "Culinaire sucré"}}
+            category: {name: {eq: "Culinaire sucré"}}
         },
         limit: 1000, 
         sort: { fields: [date], order: DESC }) {
