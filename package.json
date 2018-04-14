@@ -13,7 +13,7 @@
     "dotenv": "^5.0.1",
     "favicons": "^4.8.6",
     "foundation-sites": "^6.4.4-rc1",
-    "gatsby": "^1.9.248",
+    "gatsby": "^1.9.243",
     "gatsby-cli": "^1.1.50",
     "gatsby-image": "^1.0.34",
     "gatsby-link": "^1.6.17",
