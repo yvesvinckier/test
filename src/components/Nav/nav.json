@@ -3,7 +3,8 @@
     "links": [
       { "text": "Home", "to": "/" },
       { "text": "About", "to": "/about" },
-      { "text": "Form Test", "to": "/form-test" }
+      { "text": "Galeries", "to": "/galeries" },
+      { "text": "Contact", "to": "/form-test" }
     ]
   }
 }
