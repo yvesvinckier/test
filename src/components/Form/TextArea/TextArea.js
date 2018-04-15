@@ -22,8 +22,8 @@ export default class TextArea extends InputBase {
         min === 1
           ? 'Cannot be empty'
           : `Must be at least ${min} characters. Currently Used: ${
-            this.value.length
-          }`
+              this.value.length
+            }`
       this.setState({ error: error, invalid: true })
       return false
     } else {

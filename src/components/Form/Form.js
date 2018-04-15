@@ -75,7 +75,9 @@ export default class Form extends Component {
   refInputs = c => {
     if (c && c.getWrappedInstance) {
       const instance = c.getWrappedInstance()
-      if (instance.isInput && !includes(this.inputs, instance)) { this.inputs.push(instance) }
+      if (instance.isInput && !includes(this.inputs, instance)) {
+        this.inputs.push(instance)
+      }
     }
   }
 
@@ -88,11 +90,11 @@ export default class Form extends Component {
           store[id].error && <Alert>{store[id].error.ErrorText}</Alert>}
         {!exited && (
           <form
-            acceptCharset='UTF-8'
+            acceptCharset="UTF-8"
             action={this.props.action}
-            encType='multipart/form-data'
+            encType="multipart/form-data"
             id={this.props.id}
-            method='post'
+            method="post"
             name={this.props.id}
             noValidate
             onSubmit={this.onSubmit}
@@ -105,9 +107,9 @@ export default class Form extends Component {
               ref={c => {
                 this.honeypot = c
               }}
-              size='25'
+              size="25"
               style={{ display: 'none' }}
-              type='text'
+              type="text"
             />
           </form>
         )}

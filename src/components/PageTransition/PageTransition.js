@@ -78,7 +78,7 @@ export default class PageTransition extends Component {
           return [
             createPortal(
               <CurrentTransition
-                key='page-transition-portal'
+                key="page-transition-portal"
                 ref={this.refNode}
                 timeout={timeout}
               />,

@@ -36,8 +36,8 @@ export default class ScrollDown extends Component {
           }}
         >
           <p className={styles.scrollText}>Scroll Down</p>
-          <svg className={styles.svg} viewBox='0 0 24 24'>
-            <path d='M6 9l6 6 6-6' />
+          <svg className={styles.svg} viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6" />
           </svg>
         </div>
       </div>

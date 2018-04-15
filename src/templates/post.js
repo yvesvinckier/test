@@ -11,24 +11,33 @@ import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
   static contextTypes = {
-    scrollmagic: PropTypes.any,
+    scrollmagic: PropTypes.any
   }
 
-  componentDidMount() {
-    var animation = new TimelineMax();
-      animation
-      .set (this.refImage, {autoAplpha: 0})
-      
-      .to(this.firstSubtitle, 1, {delay:.6,top:"-=14vh",opacity:"1", ease: Expo.easeOut})
-      .to(this.secondSubtitle, 1, {top:"-=14vh",opacity:"1", ease: Expo.easeOut}, "-=0.8")
-     
-    
-      this.createAnimation()
+  componentDidMount () {
+    var animation = new TimelineMax()
+    animation
+      .set(this.refImage, { autoAplpha: 0 })
+
+      .to(this.firstSubtitle, 1, {
+        delay: 0.6,
+        top: '-=14vh',
+        opacity: '1',
+        ease: Expo.easeOut
+      })
+      .to(
+        this.secondSubtitle,
+        1,
+        { top: '-=14vh', opacity: '1', ease: Expo.easeOut },
+        '-=0.8'
+      )
+
+    this.createAnimation()
 
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0,
+      triggerHook: 0
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -40,19 +49,24 @@ class PostTemplate extends Component {
     this.scene.addTo(this.context.scrollmagic)
   }
 
-  destroy() {
+  destroy () {
     this.scene.destroy()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.destroy()
   }
 
-  createAnimation() {
+  createAnimation () {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
-    .fromTo(this.subtitle, 1, { opacity: 1, y: '0%' }, { opacity: 0, y: '-100%', ease: Power2.easeOut })
-    .to(this.refImage, .2, {y: '100%',scale:1.5, ease:Power0.easeOut});
+      .fromTo(
+        this.subtitle,
+        1,
+        { opacity: 1, y: '0%' },
+        { opacity: 0, y: '-100%', ease: Power2.easeOut }
+      )
+      .to(this.refImage, 0.2, { y: '100%', scale: 1.5, ease: Power0.easeOut })
     this.animDuration = this.animation.duration()
   }
 
@@ -64,7 +78,7 @@ class PostTemplate extends Component {
     return this.wrapper.getBoundingClientRect().height
   }
 
-  render() {
+  render () {
     // const { alt, children, reverse, sizes } = this.props
     const {
       title,
@@ -73,7 +87,7 @@ class PostTemplate extends Component {
       slug,
       description,
       cover,
-      images,
+      images
     } = this.props.data.contentfulGallery
 
     // const postIndex = find(
@@ -105,14 +119,33 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-            <h1 ref={c => {this.subtitle = c}}>
-              <span ref={c => {this.firstSubtitle = c}} >{title} {title2}</span>
-              <br/>
-              <span className="sottotitolo" ref={c => {this.secondSubtitle = c}}>Culinaire Salé</span>
+            <h1
+              ref={c => {
+                this.subtitle = c
+              }}
+            >
+              <span
+                ref={c => {
+                  this.firstSubtitle = c
+                }}
+              >
+                {title} {title2}
+              </span>
+              <br />
+              <span
+                className='sottotitolo'
+                ref={c => {
+                  this.secondSubtitle = c
+                }}
+              >
+                Culinaire Salé
+              </span>
             </h1>
             <BgImg
-              className="toto"
-              ref={c => {this.refImage = c}}
+              className='toto'
+              ref={c => {
+                this.refImage = c
+              }}
               height={'100vh'}
               sizes={cover.sizes}
               alt={cover.title}
@@ -135,7 +168,7 @@ class PostTemplate extends Component {
               <div
                 className='post-description'
                 dangerouslySetInnerHTML={{
-                  __html: description.childMarkdownRemark.html,
+                  __html: description.childMarkdownRemark.html
                 }}
               />
             </div>

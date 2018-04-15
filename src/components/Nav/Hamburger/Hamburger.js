@@ -9,13 +9,25 @@ export default class Hamburger extends PureComponent {
   }
 
   componentDidMount() {
-    const timing = 0.30
+    const timing = 0.3
     this.animation = new TimelineMax({ paused: true })
       .fromTo(this.top, timing, { y: 0 }, { y: 3, ease: Power2.easeOut })
       .fromTo(this.bottom, timing, { y: 0 }, { y: -3, ease: Power2.easeOut }, 0)
       // .fromTo(this.middle, timing, { opacity: 1 }, { opacity: 0, ease: Power2.easeOut }, 0)
-      .fromTo(this.top, timing, { rotation: 0 }, { rotation: 135, ease: Power2.easeOut }, 0)
-      .fromTo(this.bottom, timing, { rotation: 0 }, { rotation: 45, ease: Power2.easeOut }, 0)
+      .fromTo(
+        this.top,
+        timing,
+        { rotation: 0 },
+        { rotation: 135, ease: Power2.easeOut },
+        0
+      )
+      .fromTo(
+        this.bottom,
+        timing,
+        { rotation: 0 },
+        { rotation: 45, ease: Power2.easeOut },
+        0
+      )
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -33,11 +45,11 @@ export default class Hamburger extends PureComponent {
   render() {
     const { onClick } = this.props
     return (
-      <button className='hamburger__container' onClick={onClick}>
-        <div className='hamburger__burger'>
-          <span className='hamburger__bar' ref={this.refName('top')} />
+      <button className="hamburger__container" onClick={onClick}>
+        <div className="hamburger__burger">
+          <span className="hamburger__bar" ref={this.refName('top')} />
           {/* <span className="hamburger__bar" ref={this.refName('middle')} /> */}
-          <span className='hamburger__bar' ref={this.refName('bottom')} />
+          <span className="hamburger__bar" ref={this.refName('bottom')} />
         </div>
       </button>
     )
