@@ -15,7 +15,15 @@ class PostTemplate extends Component {
   }
 
   componentDidMount() {
-    this.createAnimation()
+    var animation = new TimelineMax();
+      animation
+      .set (this.refImage, {autoAplpha: 0})
+      
+      .to(this.firstSubtitle, 1, {delay:.6,top:"-=14vh",opacity:"1", ease: Expo.easeOut})
+      .to(this.secondSubtitle, 1, {top:"-=14vh",opacity:"1", ease: Expo.easeOut}, "-=0.8")
+     
+    
+      this.createAnimation()
 
     this.scene = new Scene({
       duration: this.duration,
@@ -42,12 +50,9 @@ class PostTemplate extends Component {
 
   createAnimation() {
     if (this.animation) this.animation.kill()
-    this.animation = new TimelineMax({ paused: true }).fromTo(
-      this.subtitle,
-      1,
-      { opacity: 1, y: '0%' },
-      { opacity: 0, y: '-100%', ease: Power2.easeOut }
-    )
+    this.animation = new TimelineMax({ paused: true })
+    .fromTo(this.subtitle, 1, { opacity: 1, y: '0%' }, { opacity: 0, y: '-100%', ease: Power2.easeOut })
+    .to(this.refImage, .2, {y: '100%',scale:1.5, ease:Power0.easeOut});
     this.animDuration = this.animation.duration()
   }
 
@@ -100,18 +105,15 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-            <h1
-              ref={c => {
-                this.subtitle = c
-              }}
-            >
-              {title}
-              <br />
-              {title2}
+            <h1 ref={c => {this.subtitle = c}}>
+              <span ref={c => {this.firstSubtitle = c}} >{title} {title2}</span>
+              <br/>
+              <span className="sottotitolo" ref={c => {this.secondSubtitle = c}}>Culinaire Salé</span>
             </h1>
             <BgImg
-              ref={this.refImage}
-              height={'75vh'}
+              className="toto"
+              ref={c => {this.refImage = c}}
+              height={'100vh'}
               sizes={cover.sizes}
               alt={cover.title}
               title={cover.title}
