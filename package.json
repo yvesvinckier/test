@@ -81,8 +81,7 @@
   "scripts": {
     "start": "gatsby develop -p 3000",
     "serve": "http-server ./public -p 8000",
-    "build": "gatsby build && npm run build:post",
-    "build:post": "node scripts",
+    "build": "gatsby build",
     "develop": "gatsby develop -p 3000",
   }
 }
