@@ -11,10 +11,10 @@ import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
   static contextTypes = {
-    scrollmagic: PropTypes.any
+    scrollmagic: PropTypes.any,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     var animation = new TimelineMax()
     animation
       // .set(this.refImage, { opacity: 0 })
@@ -23,7 +23,7 @@ class PostTemplate extends Component {
         delay: 0.6,
         top: '-=14vh',
         opacity: '1',
-        ease: Expo.easeOut
+        ease: Expo.easeOut,
       })
       .to(
         this.secondSubtitle,
@@ -31,14 +31,13 @@ class PostTemplate extends Component {
         { top: '-=14vh', opacity: '1', ease: Expo.easeOut },
         '-=0.8'
       )
-      
 
     this.createAnimation()
 
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0
+      triggerHook: 0,
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -50,15 +49,15 @@ class PostTemplate extends Component {
     this.scene.addTo(this.context.scrollmagic)
   }
 
-  destroy () {
+  destroy() {
     this.scene.destroy()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.destroy()
   }
 
-  createAnimation () {
+  createAnimation() {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
       .fromTo(
@@ -68,7 +67,7 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-100%', ease: Power2.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 1, { y: '10%', scale: 1.1, ease: Power0.easeOut },'-=0.8')
+      .to(this.refImage, 1, { y: '10%', scale: 1.1, ease: Power0.easeOut }, '-=0.8')
     this.animDuration = this.animation.duration()
   }
 
@@ -80,7 +79,7 @@ class PostTemplate extends Component {
     return this.wrapper.getBoundingClientRect().height
   }
 
-  render () {
+  render() {
     // const { alt, children, reverse, sizes } = this.props
     const {
       title,
@@ -89,7 +88,7 @@ class PostTemplate extends Component {
       slug,
       description,
       cover,
-      images
+      images,
     } = this.props.data.contentfulGallery
 
     // const postIndex = find(
@@ -121,10 +120,10 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-          <div className='bcg'>
+            <div className='bcg'>
               <img
                 src={cover.sizes.src}
-                
+
                 ref={c => {
                   this.refImage = c
                 }}
@@ -132,7 +131,7 @@ class PostTemplate extends Component {
                 sizes={cover.sizes}
                 alt={cover.title}
                 title={cover.title}
-                />
+              />
             </div>
             <h1
               ref={c => {
@@ -156,7 +155,7 @@ class PostTemplate extends Component {
                 Culinaire Salé
               </span>
             </h1>
-            
+
           </div>
           <div className='post-info'>
             <div className='post-info__left'>
@@ -173,7 +172,7 @@ class PostTemplate extends Component {
               <div
                 className='post-description'
                 dangerouslySetInnerHTML={{
-                  __html: description.childMarkdownRemark.html
+                  __html: description.childMarkdownRemark.html,
                 }}
               />
             </div>
