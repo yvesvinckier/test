@@ -21,8 +21,8 @@
 .blackcircle {
     stroke: $base;
     stroke-dasharray: 180;
-    height: 2.3rem;
-    width: 2.3rem;
+    height: 2rem;
+    width: 2rem;
     margin-right:20px;
     stroke-width: 8;
     stroke-miterlimit: 10;
@@ -34,9 +34,11 @@
 .header__container a span {
     width: 200px;
     padding-top: 4px;
-    font-size: 14px;
+    font-size: 13px;
+    letter-spacing: 0.05rem;
     float: right;
     &::first-line {
+      text-transform: uppercase;
       font-weight:bold;
   }
 }
