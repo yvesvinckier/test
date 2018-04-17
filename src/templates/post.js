@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
-// import BgImg from '../components/Background/background'
+import BgImg from '../components/Background/background'
 import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
@@ -17,7 +17,7 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      // .set(this.refImage, { opacity: 0 })
+      .set(this.refImage, {x: '0.5%', scale: 1.1})
 
       .to(this.firstSubtitle, 1, {
         delay: 0.6,
@@ -37,7 +37,7 @@ class PostTemplate extends Component {
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0,
+      triggerHook: 0.11,
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -60,14 +60,15 @@ class PostTemplate extends Component {
   createAnimation() {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
+
       .fromTo(
         this.subtitle,
-        1,
+        0.2,
         { opacity: 1, y: '0%' },
-        { opacity: 0, y: '-100%', ease: Power2.easeOut }
+        { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 1, { y: '10%', scale: 1.1, ease: Power0.easeOut }, '-=0.8')
+      .to(this.refImage, 0.2, { x: 0, scale: 1, ease: Power0.easeOut }, '-=0.2')
     this.animDuration = this.animation.duration()
   }
 
@@ -120,19 +121,25 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-            <div className='bcg'>
-              <img
-                src={cover.sizes.src}
 
-                ref={c => {
-                  this.refImage = c
-                }}
+            <img
+              src={cover.sizes.src}
+              ref={c => {
+                this.refImage = c
+              }}
+              sizes={cover.sizes}
+              alt={cover.title}
+              title={cover.title}
+            />
+            {/* <BgImg
                 height={'100vh'}
+                ref={c => { this.refImage = c}}
                 sizes={cover.sizes}
                 alt={cover.title}
                 title={cover.title}
-              />
-            </div>
+                backgroundColor={"#f1f1f1"}
+                /> */}
+
             <h1
               ref={c => {
                 this.subtitle = c
@@ -214,7 +221,7 @@ export const pageQuery = graphql`
         }
       }
       cover {
-        sizes(maxWidth: 1800) {
+        sizes(maxWidth: 1920) {
           src
         }
         
