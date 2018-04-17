@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
-import BgImg from '../components/Background/background'
+// import BgImg from '../components/Background/background'
 import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
@@ -17,7 +17,7 @@ class PostTemplate extends Component {
   componentDidMount () {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, { autoAplpha: 0 })
+      // .set(this.refImage, { opacity: 0 })
 
       .to(this.firstSubtitle, 1, {
         delay: 0.6,
@@ -31,6 +31,7 @@ class PostTemplate extends Component {
         { top: '-=14vh', opacity: '1', ease: Expo.easeOut },
         '-=0.8'
       )
+      
 
     this.createAnimation()
 
@@ -66,7 +67,8 @@ class PostTemplate extends Component {
         { opacity: 1, y: '0%' },
         { opacity: 0, y: '-100%', ease: Power2.easeOut }
       )
-      .to(this.refImage, 0.2, { y: '100%', scale: 1.5, ease: Power0.easeOut })
+      // .to(this.refImage, 0.2, {scale: 0})
+      .to(this.refImage, 1, { y: '10%', scale: 1.1, ease: Power0.easeOut },'-=0.8')
     this.animDuration = this.animation.duration()
   }
 
@@ -119,6 +121,19 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
+          <div className='bcg'>
+              <img
+                src={cover.sizes.src}
+                
+                ref={c => {
+                  this.refImage = c
+                }}
+                height={'100vh'}
+                sizes={cover.sizes}
+                alt={cover.title}
+                title={cover.title}
+                />
+            </div>
             <h1
               ref={c => {
                 this.subtitle = c
@@ -141,17 +156,7 @@ class PostTemplate extends Component {
                 Culinaire Salé
               </span>
             </h1>
-            <BgImg
-              className='toto'
-              ref={c => {
-                this.refImage = c
-              }}
-              height={'100vh'}
-              sizes={cover.sizes}
-              alt={cover.title}
-              title={cover.title}
-              backgroundColor={'#f1f1f1'}
-            />
+            
           </div>
           <div className='post-info'>
             <div className='post-info__left'>
@@ -211,8 +216,9 @@ export const pageQuery = graphql`
       }
       cover {
         sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+          src
         }
+        
       }
       images {
         title
