@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Scene } from 'scrollmagic'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
+import ScrollDown from '../components/Banner/ScrollDown'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
@@ -17,7 +18,7 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, {x: '0.5%', scale: 1.1})
+      .set(this.refImage, { y:'-10%', scale: 1.05})
 
       .to(this.firstSubtitle, 1, {
         delay: 0.6,
@@ -37,7 +38,7 @@ class PostTemplate extends Component {
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0.11,
+      triggerHook: 0,
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -68,7 +69,7 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 0.2, { x: 0, scale: 1, ease: Power0.easeOut }, '-=0.2')
+      .to(this.refImage, 0.2, { y: '-30%', scale: 1, ease: Power0.easeOut }, '-=0.2')
     this.animDuration = this.animation.duration()
   }
 
@@ -113,7 +114,7 @@ class PostTemplate extends Component {
             content={'http://rode-island.com/' + slug + '/'}
           />
         </Helmet>
-
+      
         <div className='post'>
           <div
             className='post-cover'
@@ -121,7 +122,7 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-
+          <div className= "bcg">
             <img
               src={cover.sizes.src}
               ref={c => {
@@ -139,6 +140,7 @@ class PostTemplate extends Component {
                 title={cover.title}
                 backgroundColor={"#f1f1f1"}
                 /> */}
+          </div>
 
             <h1
               ref={c => {
@@ -198,6 +200,7 @@ class PostTemplate extends Component {
                 </li>
               ))}
           </ul>
+          <ScrollDown />
         </div>
       </div>
     )

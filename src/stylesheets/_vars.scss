@@ -2,6 +2,8 @@
  *  Variables *
  * ---------- */
 
+ @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
 //Colors
 $base: #000; // Dark Gray
 // $base: #3e3e3e; 
@@ -9,7 +11,7 @@ $secondary: #f1f1f1; // Light Gray
 $background: #fff; // White
 
 //Font Family
-$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans", roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", sans-serif;
+$sans: 'Lato', sans-serif;
 
 //Max Width
 $max: 1200px;
