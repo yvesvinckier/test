@@ -7,7 +7,7 @@ import ScrollDown from '../components/Banner/ScrollDown'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
-import BgImg from '../components/Background/background'
+// import BgImg from '../components/Background/background'
 import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
@@ -18,7 +18,7 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, { y:'-10%', scale: 1.05})
+      .set(this.refImage, { y: '-10%', scale: 1.05 })
 
       .to(this.firstSubtitle, 1, {
         delay: 0.6,
@@ -114,7 +114,7 @@ class PostTemplate extends Component {
             content={'http://rode-island.com/' + slug + '/'}
           />
         </Helmet>
-      
+
         <div className='post'>
           <div
             className='post-cover'
@@ -122,17 +122,17 @@ class PostTemplate extends Component {
               this.wrapper = c
             }}
           >
-          <div className= "bcg">
-            <img
-              src={cover.sizes.src}
-              ref={c => {
-                this.refImage = c
-              }}
-              sizes={cover.sizes}
-              alt={cover.title}
-              title={cover.title}
-            />
-            {/* <BgImg
+            <div className='bcg'>
+              <img
+                src={cover.sizes.src}
+                ref={c => {
+                  this.refImage = c
+                }}
+                sizes={cover.sizes}
+                alt={cover.title}
+                title={cover.title}
+              />
+              {/* <BgImg
                 height={'100vh'}
                 ref={c => { this.refImage = c}}
                 sizes={cover.sizes}
@@ -140,7 +140,7 @@ class PostTemplate extends Component {
                 title={cover.title}
                 backgroundColor={"#f1f1f1"}
                 /> */}
-          </div>
+            </div>
 
             <h1
               ref={c => {
