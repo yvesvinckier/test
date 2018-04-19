@@ -59,7 +59,6 @@ class PostTemplate extends Component {
   }
 
   createAnimation() {
-    
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
 
@@ -70,7 +69,7 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 0.2, { y: "-20%", scale: 1, ease: Power0.easeOut }, '-=0.2')
+      .to(this.refImage, 0.2, { y: '-20%', scale: 1, ease: Power0.easeOut }, '-=0.2')
     this.animDuration = this.animation.duration()
   }
 
@@ -118,25 +117,25 @@ class PostTemplate extends Component {
 
         <div className='post'>
           <div className='post-title'>
-            <div className= 'post-title-wrapper'>
-            <div className= 'post-title-padding'>
-              <div className= 'post-title-style'>
+            <div className='post-title-wrapper'>
+              <div className='post-title-padding'>
+                <div className='post-title-style'>
                   <h1 ref={c => { this.subtitle = c }} >
-                      <span ref={c => { this.firstpostSubtitle = c }}>
-                        {title} 
-                      </span>
-                      <br />
-                      <span className='sottotitolo'ref={c => { this.secondpostSubtitle = c }}>
+                    <span ref={c => { this.firstpostSubtitle = c }}>
+                      {title}
+                    </span>
+                    <br />
+                    <span className='sottotitolo'ref={c => { this.secondpostSubtitle = c }}>
                       {title2}
-                      </span>
+                    </span>
                   </h1>
                 </div>
               </div>
             </div>
           </div>
-          <div className='post-cover' ref={c => { this.wrapper = c}}>
-            <div ref={c => { this.refImage = c}}>
-              <BgImg height={'100vh'} sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={"#f1f1f1"} />
+          <div className='post-cover' ref={c => { this.wrapper = c }}>
+            <div ref={c => { this.refImage = c }}>
+              <BgImg height={'100vh'} sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={'#f1f1f1'} />
             </div>
             <h1 ref={c => { this.subtitle = c }} >
               <span ref={c => { this.firstSubtitle = c }}>
