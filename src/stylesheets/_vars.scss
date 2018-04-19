@@ -3,6 +3,7 @@
  * ---------- */
 
  @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+ @import url('https://fonts.googleapis.com/css?family=Bitter:400,400i,700');
 
 //Colors
 $base: #000; // Dark Gray
@@ -12,12 +13,13 @@ $background: #fff; // White
 
 //Font Family
 $sans: 'Lato', sans-serif;
+$slab: 'Bitter', serif;
 
 //Max Width
-$max: 1200px;
+$max: 1350px;
 
 
 //Nav Height
-$nav-height: 50px;
+$nav-height: 73px;
 
 // $nav-height: 80px;

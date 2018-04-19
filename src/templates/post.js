@@ -7,7 +7,7 @@ import ScrollDown from '../components/Banner/ScrollDown'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
-// import BgImg from '../components/Background/background'
+import BgImg from '../components/Background/background'
 import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
@@ -18,16 +18,16 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, { y: '-10%', scale: 1.05 })
+      .set(this.refImage, { scale: 1.05 })
 
-      .to(this.firstSubtitle, 1, {
+      .to(this.firstpostSubtitle, 1, {
         delay: 0.6,
         top: '-=14vh',
         opacity: '1',
         ease: Expo.easeOut,
       })
       .to(
-        this.secondSubtitle,
+        this.secondpostSubtitle,
         1,
         { top: '-=14vh', opacity: '1', ease: Expo.easeOut },
         '-=0.8'
@@ -59,6 +59,7 @@ class PostTemplate extends Component {
   }
 
   createAnimation() {
+    
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
 
@@ -69,7 +70,7 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 0.2, { y: '-30%', scale: 1, ease: Power0.easeOut }, '-=0.2')
+      .to(this.refImage, 0.2, { y: "-20%", scale: 1, ease: Power0.easeOut }, '-=0.2')
     this.animDuration = this.animation.duration()
   }
 
@@ -116,52 +117,34 @@ class PostTemplate extends Component {
         </Helmet>
 
         <div className='post'>
-          <div
-            className='post-cover'
-            ref={c => {
-              this.wrapper = c
-            }}
-          >
-            <div className='bcg'>
-              <img
-                src={cover.sizes.src}
-                ref={c => {
-                  this.refImage = c
-                }}
-                sizes={cover.sizes}
-                alt={cover.title}
-                title={cover.title}
-              />
-              {/* <BgImg
-                height={'100vh'}
-                ref={c => { this.refImage = c}}
-                sizes={cover.sizes}
-                alt={cover.title}
-                title={cover.title}
-                backgroundColor={"#f1f1f1"}
-                /> */}
+          <div className='post-title'>
+            <div className= 'post-title-wrapper'>
+            <div className= 'post-title-padding'>
+              <div className= 'post-title-style'>
+                  <h1 ref={c => { this.subtitle = c }} >
+                      <span ref={c => { this.firstpostSubtitle = c }}>
+                        {title} 
+                      </span>
+                      <br />
+                      <span className='sottotitolo'ref={c => { this.secondpostSubtitle = c }}>
+                      {title2}
+                      </span>
+                  </h1>
+                </div>
+              </div>
             </div>
-
-            <h1
-              ref={c => {
-                this.subtitle = c
-              }}
-            >
-              <span
-                ref={c => {
-                  this.firstSubtitle = c
-                }}
-              >
+          </div>
+          <div className='post-cover' ref={c => { this.wrapper = c}}>
+            <div ref={c => { this.refImage = c}}>
+              <BgImg height={'100vh'} sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={"#f1f1f1"} />
+            </div>
+            <h1 ref={c => { this.subtitle = c }} >
+              <span ref={c => { this.firstSubtitle = c }}>
                 {title} {title2}
               </span>
               <br />
-              <span
-                className='sottotitolo'
-                ref={c => {
-                  this.secondSubtitle = c
-                }}
-              >
-                Culinaire Salé
+              <span className='sottotitolo'ref={c => { this.secondSubtitle = c }}>
+                {'Culinaire Salé'}
               </span>
             </h1>
 
@@ -224,10 +207,10 @@ export const pageQuery = graphql`
         }
       }
       cover {
-        sizes(maxWidth: 1920) {
-          src
+        title
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_noBase64
         }
-        
       }
       images {
         title
