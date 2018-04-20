@@ -38,7 +38,7 @@ class PostTemplate extends Component {
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0,
+      triggerHook: 0.55,
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -69,7 +69,7 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 0.2, { y: '-20%', scale: 1, ease: Power0.easeOut }, '-=0.2')
+      .to(this.refImage, 0.2, { y: '-25%', scale: 1, ease: Power0.easeOut }, '-=0.2')
     this.animDuration = this.animation.duration()
   }
 
@@ -92,6 +92,10 @@ class PostTemplate extends Component {
       cover,
       images,
     } = this.props.data.contentfulGallery
+    
+    const {
+      categoryslug
+    } = this.props.data.contentfulCategory
 
     // const postIndex = find(
     //     data.allContentfulGallery.edges,
@@ -137,23 +141,13 @@ class PostTemplate extends Component {
             <div ref={c => { this.refImage = c }}>
               <BgImg height={'100vh'} sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={'#f1f1f1'} />
             </div>
-            <h1 ref={c => { this.subtitle = c }} >
-              <span ref={c => { this.firstSubtitle = c }}>
-                {title} {title2}
-              </span>
-              <br />
-              <span className='sottotitolo'ref={c => { this.secondSubtitle = c }}>
-                {'Culinaire Salé'}
-              </span>
-            </h1>
-
-          </div>
+           </div>
           <div className='post-info'>
             <div className='post-info__left'>
               <h2 className='post-info-title'>Details</h2>
               <h3 className='post-category'>
-                <Link to={'/' + category.categoryslug + '/'}>
-                  {category.id}
+                <Link to={'/' + categoryslug + '/'}>
+                  {}
                 </Link>
               </h3>
               {/* {postIndex.previous && (<Link className="post-previous" to={"/" + postIndex.previous.slug + "/"}>Previous</Link>)}
@@ -182,7 +176,7 @@ class PostTemplate extends Component {
                 </li>
               ))}
           </ul>
-          <ScrollDown />
+          
         </div>
       </div>
     )
@@ -207,7 +201,7 @@ export const pageQuery = graphql`
       }
       cover {
         title
-        sizes(maxWidth: 1800) {
+        sizes(maxWidth: 1920) {
           ...GatsbyContentfulSizes_noBase64
         }
       }
@@ -219,6 +213,10 @@ export const pageQuery = graphql`
         }
       }
     }
+contentfulCategory {
+        title
+        categoryslug
+      }
   }
 `
 
