@@ -14,10 +14,10 @@ const BgImg = styled(Img)`
   }
   & > img {
     object-fit: ${props => props.fit || 'cover'} !important;
-    object-position: ${props => props.position || '50% 50%'} !important;
+    object-position: ${props => props.position || 'top center'} !important;
     font-family: 'object-fit: ${props =>
       props.fit || 'cover'} !important; object-position: ${props =>
-  props.position || '50% 50%'} !important;'
+  props.position || 'top center'} !important;'
   }
 `
 
