@@ -68,7 +68,7 @@ const Galleries = ({ data }) => {
 export const query = graphql`
   query GalleryQuery {
     allContentfulGallery(
-      filter: { node_locale: { eq: 'fr-FR' } }
+      filter: { node_locale: { eq: "fr-FR" } }
       limit: 100
       sort: { fields: [date], order: DESC }
     ) {

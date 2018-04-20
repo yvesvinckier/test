@@ -67,8 +67,8 @@ export const query = graphql`
   query CulinaireSucreQuery {
     allContentfulGallery(
       filter: {
-        node_locale: { eq: 'fr-FR' }
-        category: { name: { eq: 'Culinaire sucré' } }
+        node_locale: { eq: "fr-FR" }
+        category: { name: { eq: "Culinaire sucré" } }
       }
       limit: 1000
       sort: { fields: [date], order: DESC }
@@ -85,7 +85,7 @@ export const query = graphql`
           }
           cover {
             title
-            sizes(maxWidth: 1800) {
+            sizes(maxWidth: 1920) {
               ...GatsbyContentfulSizes_noBase64
             }
           }

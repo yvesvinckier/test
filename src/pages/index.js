@@ -84,7 +84,7 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query HomeQuery {
     allContentfulGallery(
-      filter: { node_locale: { eq: 'fr-FR' } }
+      filter: { node_locale: { eq: "fr-FR" } }
       limit: 8
       sort: { fields: [date], order: DESC }
     ) {
@@ -93,7 +93,7 @@ export const query = graphql`
           title
           id
           slug
-          date(formatString: 'M.DD.YYYY')
+          date(formatString: "M.DD.YYYY")
           cover {
             title
             sizes(maxWidth: 1800) {

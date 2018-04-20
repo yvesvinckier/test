@@ -240,7 +240,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulCategory {
-      title
+      name
       categoryslug
     }
   }
