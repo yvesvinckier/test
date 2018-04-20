@@ -80,7 +80,7 @@ export const query = graphql`
           slug
           date
           category {
-            title
+            name
             categoryslug
           }
           cover {
