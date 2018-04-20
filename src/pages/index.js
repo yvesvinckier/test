@@ -17,20 +17,20 @@ const IndexPage = ({ data }) => {
           Lille
         </title>
         <meta
-          name="description"
-          content="JEAN EMMANUEL RODE Photographie helps clients capture special moments in culinary photography à Lille"
+          name='description'
+          content='JEAN EMMANUEL RODE Photographie helps clients capture special moments in culinary photography à Lille'
         />
         <meta
-          property="og:title"
-          content="JEAN EMMANUEL RODE Photographie - Photographe culinaire spectacle à Lille"
+          property='og:title'
+          content='JEAN EMMANUEL RODE Photographie - Photographe culinaire spectacle à Lille'
         />
-        <meta property="og:image" content={page.cover.sizes.src} />
-        <meta property="og:image:width" content="1800" />
-        <meta property="og:image:height" content="1200" />
+        <meta property='og:image' content={page.cover.sizes.src} />
+        <meta property='og:image:width' content='1800' />
+        <meta property='og:image:height' content='1200' />
       </Helmet>
 
-      <div className="intro intro--home sticky">
-        {/* <h1><img className="logo" src={logo} /></h1> */}
+      <div className='intro intro--home sticky'>
+        {/* <h1><img className='logo' src={logo} /></h1> */}
         <BgImg
           height={'75vh'}
           sizes={page.cover.sizes}
@@ -38,16 +38,16 @@ const IndexPage = ({ data }) => {
           title={page.cover.title}
         />
       </div>
-      <div className="page">
+      <div className='page'>
         <div
-          className="quote"
+          className='quote'
           dangerouslySetInnerHTML={{
             __html: page.quote.childMarkdownRemark.html,
           }}
         />
 
-        <div className="featured">
-          <div className="featured__newest sticky">
+        <div className='featured'>
+          <div className='featured__newest sticky'>
             <h2>Recent Work</h2>
             <Link to={posts[0].node.slug + '/'}>
               <Img
@@ -60,7 +60,7 @@ const IndexPage = ({ data }) => {
             </Link>
           </div>
 
-          <ul className="featured__list">
+          <ul className='featured__list'>
             {posts.slice(1).map(({ node: post }) => (
               <li key={post.id}>
                 <Link to={post.slug + '/'}>
@@ -84,7 +84,7 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query HomeQuery {
     allContentfulGallery(
-      filter: { node_locale: { eq: "fr-FR" } }
+      filter: { node_locale: { eq: 'fr-FR' } }
       limit: 8
       sort: { fields: [date], order: DESC }
     ) {
@@ -93,7 +93,7 @@ export const query = graphql`
           title
           id
           slug
-          date(formatString: "M.DD.YYYY")
+          date(formatString: 'M.DD.YYYY')
           cover {
             title
             sizes(maxWidth: 1800) {
@@ -109,7 +109,7 @@ export const query = graphql`
       id
       cover {
         title
-        sizes(maxWidth: 1800) {
+        sizes(maxWidth: 1920) {
           ...GatsbyContentfulSizes_noBase64
         }
       }

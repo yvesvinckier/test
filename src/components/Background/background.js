@@ -16,7 +16,7 @@ const BgImg = styled(Img)`
     object-fit: ${props => props.fit || 'cover'} !important;
     object-position: ${props => props.position || 'top center'} !important;
     font-family: 'object-fit: ${props =>
-      props.fit || 'cover'} !important; object-position: ${props =>
+    props.fit || 'cover'} !important; object-position: ${props =>
   props.position || 'top center'} !important;'
   }
 `

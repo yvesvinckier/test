@@ -11,40 +11,40 @@ const CulinaireSucre = ({ data }) => {
       <Helmet>
         <title>Culinaire Sucré - JEAN EMMANUEL RODE Photographe LILLE</title>
         <meta
-          name="description"
-          content="Le Culinaire Sucré par JEAN EMMANUEL RODE Photographe LILLE"
+          name='description'
+          content='Le Culinaire Sucré par JEAN EMMANUEL RODE Photographe LILLE'
         />
         <meta
-          property="og:title"
-          content="Culinaire Sucré - JEAN EMMANUEL RODE Photographe LILLE"
+          property='og:title'
+          content='Culinaire Sucré - JEAN EMMANUEL RODE Photographe LILLE'
         />
-        <meta property="og:image" content={posts[0].node.cover.sizes.src} />
-        <meta property="og:image:width" content="1800" />
-        <meta property="og:image:height" content="1200" />
+        <meta property='og:image' content={posts[0].node.cover.sizes.src} />
+        <meta property='og:image:width' content='1800' />
+        <meta property='og:image:height' content='1200' />
         <meta
-          property="og:url"
-          content="http://www.rode-island.com/galeries/"
+          property='og:url'
+          content='http://www.rode-island.com/galeries/'
         />
       </Helmet>
 
-      <div className="category-navigation">
+      <div className='category-navigation'>
         <h2>Galeries</h2>
-        <ul className="category-navigation__links">
+        <ul className='category-navigation__links'>
           <li>
-            <Link to="/galeries/">All</Link>
+            <Link to='/galeries/'>All</Link>
           </li>
           <li>
-            <Link to="/culinaire-sucre/" className="active">
+            <Link to='/culinaire-sucre/' className='active'>
               Culinaire sucré
             </Link>
           </li>
           <li>
-            <Link to="/culinaire-sale/">Culinaire salé</Link>
+            <Link to='/culinaire-sale/'>Culinaire salé</Link>
           </li>
         </ul>
       </div>
 
-      <ul className="galleries-list">
+      <ul className='galleries-list'>
         {posts.map(({ node: post, index }) => (
           <li key={post.id}>
             <Link to={'/' + post.slug + '/'}>
@@ -67,8 +67,8 @@ export const query = graphql`
   query CulinaireSucreQuery {
     allContentfulGallery(
       filter: {
-        node_locale: { eq: "fr-FR" }
-        category: { title: { eq: "Culinaire sucré" } }
+        node_locale: { eq: 'fr-FR' }
+        category: { name: { eq: 'Culinaire sucré' } }
       }
       limit: 1000
       sort: { fields: [date], order: DESC }

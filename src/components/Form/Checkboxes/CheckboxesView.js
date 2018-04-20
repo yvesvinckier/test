@@ -18,7 +18,7 @@ export default function CheckboxesView({
         </legend>
         {checkboxes.map(item => [
           <input
-            type="checkbox"
+            type='checkbox'
             id={item.id}
             name={item.id}
             checked={!!getValue(item.id)}

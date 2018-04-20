@@ -3,7 +3,7 @@ import * as Actions from './'
 import { put, call, takeEvery } from 'redux-saga/effects'
 import Logger from 'utils/logger'
 
-function* fetchSubmit(action) {
+function * fetchSubmit(action) {
   try {
     const data = yield call(API.newEntry, action)
     yield put(Actions.submitted(action.formId, data))
@@ -19,6 +19,6 @@ function* fetchSubmit(action) {
   }
 }
 
-export default function* watch() {
+export default function * watch() {
   yield takeEvery(Actions.Types.SUBMIT, fetchSubmit)
 }

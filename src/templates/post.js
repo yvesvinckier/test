@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Scene } from 'scrollmagic'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
-import ScrollDown from '../components/Banner/ScrollDown'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
@@ -69,7 +68,12 @@ class PostTemplate extends Component {
         { opacity: 0, y: '-10%', ease: Power0.easeOut }
       )
       // .to(this.refImage, 0.2, {scale: 0})
-      .to(this.refImage, 0.2, { y: '-25%', scale: 1, ease: Power0.easeOut }, '-=0.2')
+      .to(
+        this.refImage,
+        0.2,
+        { y: '-25%', scale: 1, ease: Power0.easeOut },
+        '-=0.2'
+      )
     this.animDuration = this.animation.duration()
   }
 
@@ -86,16 +90,13 @@ class PostTemplate extends Component {
     const {
       title,
       title2,
-      category,
       slug,
       description,
       cover,
       images,
     } = this.props.data.contentfulGallery
-    
-    const {
-      categoryslug
-    } = this.props.data.contentfulCategory
+
+    const { name, categoryslug } = this.props.data.contentfulCategory
 
     // const postIndex = find(
     //     data.allContentfulGallery.edges,
@@ -124,12 +125,25 @@ class PostTemplate extends Component {
             <div className='post-title-wrapper'>
               <div className='post-title-padding'>
                 <div className='post-title-style'>
-                  <h1 ref={c => { this.subtitle = c }} >
-                    <span ref={c => { this.firstpostSubtitle = c }}>
+                  <h1
+                    ref={c => {
+                      this.subtitle = c
+                    }}
+                  >
+                    <span
+                      ref={c => {
+                        this.firstpostSubtitle = c
+                      }}
+                    >
                       {title}
                     </span>
                     <br />
-                    <span className='sottotitolo'ref={c => { this.secondpostSubtitle = c }}>
+                    <span
+                      className='sottotitolo'
+                      ref={c => {
+                        this.secondpostSubtitle = c
+                      }}
+                    >
                       {title2}
                     </span>
                   </h1>
@@ -137,21 +151,34 @@ class PostTemplate extends Component {
               </div>
             </div>
           </div>
-          <div className='post-cover' ref={c => { this.wrapper = c }}>
-            <div ref={c => { this.refImage = c }}>
-              <BgImg height={'100vh'} sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={'#f1f1f1'} />
+          <div
+            className='post-cover'
+            ref={c => {
+              this.wrapper = c
+            }}
+          >
+            <div
+              ref={c => {
+                this.refImage = c
+              }}
+            >
+              <BgImg
+                height={'100vh'}
+                sizes={cover.sizes}
+                alt={cover.title}
+                title={cover.title}
+                backgroundColor={'#f1f1f1'}
+              />
             </div>
-           </div>
+          </div>
           <div className='post-info'>
             <div className='post-info__left'>
               <h2 className='post-info-title'>Details</h2>
               <h3 className='post-category'>
-                <Link to={'/' + categoryslug + '/'}>
-                  {}
-                </Link>
+                <Link to={'/' + categoryslug + '/'}>{name}</Link>
               </h3>
-              {/* {postIndex.previous && (<Link className="post-previous" to={"/" + postIndex.previous.slug + "/"}>Previous</Link>)}
-                    {postIndex.next && (<Link className="post-next" to={"/" + postIndex.next.slug + "/"}>Next</Link>)} */}
+              {/* {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
+                    {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)} */}
             </div>
             <div className='post-info__right'>
               <div
@@ -176,7 +203,6 @@ class PostTemplate extends Component {
                 </li>
               ))}
           </ul>
-          
         </div>
       </div>
     )
@@ -191,7 +217,7 @@ export const pageQuery = graphql`
       id
       slug
       category {
-        title
+        name
         categoryslug
       }
       description {
@@ -213,10 +239,10 @@ export const pageQuery = graphql`
         }
       }
     }
-contentfulCategory {
-        title
-        categoryslug
-      }
+    contentfulCategory {
+      title
+      categoryslug
+    }
   }
 `
 
