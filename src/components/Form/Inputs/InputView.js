@@ -11,7 +11,7 @@ export default function InputView({ children, error, inputProps, width }) {
           className={error ? styles.labelInvalid : styles.label}
         >
           {children}
-          <input className={styles.input} type='text' {...inputProps} />
+          <input className={styles.input} type="text" {...inputProps} />
         </label>
       </div>
     </div>

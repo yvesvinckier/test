@@ -13,40 +13,40 @@ const Galleries = ({ data }) => {
           Toutes les Galeries - JEAN EMMANUEL RODE Photographe LILLE
         </title>
         <meta
-          name='description'
-          content='Voir toutes les galeries par JEAN EMMANUEL RODE Photographe LILLE'
+          name="description"
+          content="Voir toutes les galeries par JEAN EMMANUEL RODE Photographe LILLE"
         />
         <meta
-          property='og:title'
-          content='Toutes les Galeries - JEAN EMMANUEL RODE Photographe LILLE'
+          property="og:title"
+          content="Toutes les Galeries - JEAN EMMANUEL RODE Photographe LILLE"
         />
-        <meta property='og:image' content={posts[0].node.cover.sizes.src} />
-        <meta property='og:image:width' content='1800' />
-        <meta property='og:image:height' content='1200' />
+        <meta property="og:image" content={posts[0].node.cover.sizes.src} />
+        <meta property="og:image:width" content="1800" />
+        <meta property="og:image:height" content="1200" />
         <meta
-          property='og:url'
-          content='http://www.rode-island.com/galeries/'
+          property="og:url"
+          content="http://www.rode-island.com/galeries/"
         />
       </Helmet>
 
-      <div className='category-navigation'>
+      <div className="category-navigation">
         <h2>Galeries</h2>
-        <ul className='category-navigation__links'>
+        <ul className="category-navigation__links">
           <li>
-            <Link to='/galeries/' className='active'>
+            <Link to="/galeries/" className="active">
               All
             </Link>
           </li>
           <li>
-            <Link to='/culinaire-sucre/'>Culinaire sucré</Link>
+            <Link to="/culinaire-sucre/">Culinaire sucré</Link>
           </li>
           <li>
-            <Link to='/culinaire-sale/'>Culinaire salé</Link>
+            <Link to="/culinaire-sale/">Culinaire salé</Link>
           </li>
         </ul>
       </div>
 
-      <ul className='galleries-list'>
+      <ul className="galleries-list">
         {posts.map(({ node: post, index }) => (
           <li key={post.id}>
             <Link to={'/' + post.slug + '/'}>
@@ -80,7 +80,7 @@ export const query = graphql`
           date
           cover {
             title
-            sizes(maxWidth: 1800) {
+            sizes(maxWidth: 1920) {
               ...GatsbyContentfulSizes_noBase64
             }
           }

@@ -36,7 +36,7 @@ export default class Submit extends Component {
             <input
               className={styles.input}
               disabled={this.form && this.form.fetching}
-              type='submit'
+              type="submit"
               value={children}
             />
           )}

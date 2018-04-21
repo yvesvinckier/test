@@ -18,7 +18,7 @@ export default function RadiosView({
         </legend>
         {radios.map((item, key) => [
           <input
-            type='radio'
+            type="radio"
             id={inputProps.name + key}
             checked={value === item.value}
             value={item.value}

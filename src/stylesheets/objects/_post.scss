@@ -35,7 +35,7 @@
   font-weight: 400;
   letter-spacing: -.025em;
   line-height: 1.11538;
-  color: #9ea0a6;
+  color: $grey;
   @include bp (medium) {
     font-size: 3rem;
   }
@@ -191,6 +191,20 @@
 .post-category {
   display: inline-block;
   text-transform: capitalize;
+  .arrow {
+    fill: $grey;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 2px;
+    width: 6px;
+    height: 10px;
+   }
+   .arrow-span{
+     display: inline-flex;
+     flex-flow: row nowrap;
+     align-items: center;
+
+   }
 }
 
 .post-location, .post-date, .post-category, .post-next {
