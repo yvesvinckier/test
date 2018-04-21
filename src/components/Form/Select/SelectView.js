@@ -24,7 +24,7 @@ export default function SelectView({
             {...inputProps}
           >
             {!inputProps.multiple && (
-              <option value="" disabled defaultValue>
+              <option value='' disabled defaultValue>
                 Choose your option
               </option>
             )}

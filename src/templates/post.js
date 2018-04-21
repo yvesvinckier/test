@@ -107,25 +107,25 @@ class PostTemplate extends Component {
       <div>
         <Helmet>
           <title>{title} - JEAN EMMANUEL RODE PHOTOGRAPHE LILLE</title>
-          <meta name="description" content={title} />
+          <meta name='description' content={title} />
           <meta
-            property="og:title"
+            property='og:title'
             content={title + ' - JEAN EMMANUEL RODE PHOTOGRAPHE LILLE'}
           />
-          <meta property="og:image" content={cover.sizes.src} />
-          <meta property="og:image:width" content="1800" />
-          <meta property="og:image:height" content="1200" />
+          <meta property='og:image' content={cover.sizes.src} />
+          <meta property='og:image:width' content='1800' />
+          <meta property='og:image:height' content='1200' />
           <meta
-            property="og:url"
+            property='og:url'
             content={'http://rode-island.com/' + slug + '/'}
           />
         </Helmet>
 
-        <div className="post">
-          <div className="post-title">
-            <div className="post-title-wrapper">
-              <div className="post-title-padding">
-                <div className="post-title-style">
+        <div className='post'>
+          <div className='post-title'>
+            <div className='post-title-wrapper'>
+              <div className='post-title-padding'>
+                <div className='post-title-style'>
                   <h1
                     ref={c => {
                       this.subtitle = c
@@ -140,7 +140,7 @@ class PostTemplate extends Component {
                     </span>
                     <br />
                     <span
-                      className="sottotitolo"
+                      className='sottotitolo'
                       ref={c => {
                         this.secondpostSubtitle = c
                       }}
@@ -153,7 +153,7 @@ class PostTemplate extends Component {
             </div>
           </div>
           <div
-            className="post-cover"
+            className='post-cover'
             ref={c => {
               this.wrapper = c
             }}
@@ -172,30 +172,30 @@ class PostTemplate extends Component {
               />
             </div>
           </div>
-          <div className="post-info">
-            <div className="post-info__left">
-              <h2 className="post-info-title">Details</h2>
-              <h3 className="post-category">
+          <div className='post-info'>
+            <div className='post-info__left'>
+              <h2 className='post-info-title'>Details</h2>
+              <h3 className='post-category'>
                 <Link to={'/' + author.authorSlug + '/'}>{author.name}</Link>
-                <span className="arrow-span">
-                  <svg className="arrow" width="6px" viewBox="0 0 6 10">
-                    <path d="M5.284,5.000 L1.000,9.285 L0.293,8.578 L3.870,5.000 L0.293,1.423 L1.000,0.716 L4.577,4.293 L4.577,4.293 L5.284,5.000 Z" />
+                <span className='arrow-span'>
+                  <svg className='arrow' width='6px' viewBox='0 0 6 10'>
+                    <path d='M5.284,5.000 L1.000,9.285 L0.293,8.578 L3.870,5.000 L0.293,1.423 L1.000,0.716 L4.577,4.293 L4.577,4.293 L5.284,5.000 Z' />
                   </svg>
                 </span>
               </h3>
               {/* {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
                     {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)} */}
             </div>
-            <div className="post-info__right">
+            <div className='post-info__right'>
               <div
-                className="post-description"
+                className='post-description'
                 dangerouslySetInnerHTML={{
                   __html: description.childMarkdownRemark.html,
                 }}
               />
             </div>
           </div>
-          <ul className="post-images">
+          <ul className='post-images'>
             {images &&
               images.map((images, index) => (
                 <li key={index}>
