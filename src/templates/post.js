@@ -181,7 +181,7 @@ class PostTemplate extends Component {
                     <svg className='arrow' width='6px' viewBox='0 0 6 10'>
                       <path d='M5.284,5.000 L1.000,9.285 L0.293,8.578 L3.870,5.000 L0.293,1.423 L1.000,0.716 L4.577,4.293 L4.577,4.293 L5.284,5.000 Z' />
                     </svg>
-                  
+
                     <span className='inner-span'>
                       <span className='first-span' />
                       <span className='second-span'>
