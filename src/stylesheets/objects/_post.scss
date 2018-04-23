@@ -191,6 +191,7 @@
 .post-category {
   display: inline-block;
   text-transform: capitalize;
+  position: relative;
   .arrow {
     fill: $grey;
     display: inline-block;
@@ -205,6 +206,37 @@
      align-items: center;
 
    }
+}
+.first-span {
+  display: block;
+    position: relative;
+    padding-left: 0;
+    padding-right: 25px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.second-span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.1);
+  transform: translateX(-103%);
+  &::hover {
+    transform: translateX 0;
+  }
+}
+
+.third-span {
+  display: block;
+    position: relative;
+    z-index: 2;
 }
 
 .post-location, .post-date, .post-category, .post-next {
