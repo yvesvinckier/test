@@ -17,7 +17,7 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, { scale: 1.05 })
+      .set(this.refImage, { scale: 1.1 })
 
       .to(this.firstpostSubtitle, 1, {
         delay: 0.6,
@@ -29,7 +29,7 @@ class PostTemplate extends Component {
         this.secondpostSubtitle,
         1,
         { top: '-=14vh', opacity: '1', ease: Expo.easeOut },
-        '-=0.8'
+        '-=0.9'
       )
 
     this.createAnimation()
@@ -61,17 +61,10 @@ class PostTemplate extends Component {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
 
-      .fromTo(
-        this.subtitle,
-        0.2,
-        { opacity: 1, y: '0%' },
-        { opacity: 0, y: '-10%', ease: Power0.easeOut }
-      )
-      // .to(this.refImage, 0.2, {scale: 0})
       .to(
         this.refImage,
         0.2,
-        { y: '-25%', scale: 1, ease: Power0.easeOut },
+        { y: '-30%', scale: 1, ease: Power0.easeOut },
         '-=0.2'
       )
     this.animDuration = this.animation.duration()
@@ -82,7 +75,7 @@ class PostTemplate extends Component {
   }
 
   duration = () => {
-    return this.wrapper.getBoundingClientRect().height
+    return this.wrapper.getBoundingClientRect().height * 0.8
   }
 
   render() {
@@ -122,35 +115,16 @@ class PostTemplate extends Component {
         </Helmet>
 
         <div className='post'>
-          <div className='post-title'>
-            <div className='post-title-wrapper'>
-              <div className='post-title-padding'>
-                <div className='post-title-style'>
-                  <h1
-                    ref={c => {
-                      this.subtitle = c
-                    }}
-                  >
-                    <span
-                      ref={c => {
-                        this.firstpostSubtitle = c
-                      }}
-                    >
-                      {title}
-                    </span>
-                    <br />
-                    <span
-                      className='sottotitolo'
-                      ref={c => {
-                        this.secondpostSubtitle = c
-                      }}
-                    >
-                      {title2}
-                    </span>
-                  </h1>
-                </div>
-              </div>
-            </div>
+          <div className='post-title' ref={c => { this.subtitle = c }}>
+            <h1>
+              <span ref={c => { this.firstpostSubtitle = c }}>
+                {title}
+              </span>
+              <br />
+              <span ref={c => { this.secondpostSubtitle = c }}>
+                {title2}
+              </span>
+            </h1>
           </div>
           <div
             className='post-cover'
@@ -195,12 +169,7 @@ class PostTemplate extends Component {
                     {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)} */}
             </div>
             <div className='post-info__right'>
-              <div
-                className='post-description'
-                dangerouslySetInnerHTML={{
-                  __html: description.childMarkdownRemark.html,
-                }}
-              />
+              <div className='post-description' dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
             </div>
           </div>
           <ul className='post-images'>

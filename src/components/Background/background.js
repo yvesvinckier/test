@@ -1,4 +1,3 @@
-// import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
@@ -14,10 +13,8 @@ const BgImg = styled(Img)`
   }
   & > img {
     object-fit: ${props => props.fit || 'cover'} !important;
-    object-position: ${props => props.position || 'top center'} !important;
-    font-family: 'object-fit: ${props =>
-    props.fit || 'cover'} !important; object-position: ${props =>
-  props.position || 'top center'} !important;'
+    object-position: ${props => props.position || '50% 50%'} !important;
+    font-family: 'object-fit: ${props => props.fit || 'cover'} !important; object-position: ${props => props.position || '50% 50%'} !important;'
   }
 `
 

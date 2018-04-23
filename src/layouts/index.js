@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import Helmet from 'react-helmet'
+import favicon from '../images/favicon.ico'
 
 import App from 'components/App'
 import Footer from 'components/Footer'
@@ -7,13 +9,35 @@ import Nav from 'components/Nav'
 
 import '../stylesheets/style.scss'
 
+const closeOverlay = () => {
+  const wrapper = document.getElementById('wrapper')
+  wrapper.className = ''
+}
+
 const TemplateWrapper = ({ children, location }) => {
   return (
-    <App location={location}>
-      <Nav location={location} />
-      {children()}
-      <Footer />
-    </App>
+    <div id='wrapper'>
+      <Helmet>
+        <title>JEAN EMMANUEL RODE Photographie - Photographe culinaire spectacle à Lille</title>
+        <link rel='icon' href={favicon} />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' />
+        <meta name='description' content='JEAN EMMANUEL RODE Photographie helps clients capture special moments in culinary photography à Lille' />
+        <meta property='og:title' content='JEAN EMMANUEL RODE Photographie - Photographe culinaire spectacle à Lille' />
+        <meta property='og:locale' content='fr_FR' />
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='JEAN EMMANUEL RODE Photographie' />
+        <meta property='og:url' content='http://www.rode-island.com' />
+      </Helmet>
+
+      <section className='container' onClick={closeOverlay}>
+        <App location={location}>
+          <Nav location={location} />
+          {children()}
+          <Footer />
+        </App>
+      </section>
+    </div>
   )
 }
 
