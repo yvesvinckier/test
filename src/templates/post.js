@@ -176,15 +176,19 @@ class PostTemplate extends Component {
             <div className='post-info__left'>
               <h2 className='post-info-title'>Details</h2>
               <h3 className='post-category'>
-                <Link to={'/' + author.authorSlug + '/'}>{author.name}
-                  <span className='arrow-span'>
+                <Link to={'/' + author.authorSlug + '/'}>
+                  <span className='outer-span'>
                     <svg className='arrow' width='6px' viewBox='0 0 6 10'>
                       <path d='M5.284,5.000 L1.000,9.285 L0.293,8.578 L3.870,5.000 L0.293,1.423 L1.000,0.716 L4.577,4.293 L4.577,4.293 L5.284,5.000 Z' />
                     </svg>
+                  
+                    <span className='inner-span'>
+                      <span className='first-span' />
+                      <span className='second-span'>
+                        {author.name}
+                      </span>
+                    </span>
                   </span>
-                  <span className='first-span' />
-                  <span className='second-span' />
-                  <span className='third span' />
                 </Link>
               </h3>
               {/* {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}

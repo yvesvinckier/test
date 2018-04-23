@@ -200,14 +200,19 @@
     width: 6px;
     height: 10px;
    }
-   .arrow-span{
+   .outer-span{
      display: inline-flex;
      flex-flow: row nowrap;
      align-items: center;
-
-   }
+  }
+  a {
+    transition: all .3s
+  }
+  a:hover .first-span{
+    transform: translateY(0);
+  }
 }
-.first-span {
+.inner-span {
   display: block;
     position: relative;
     padding-left: 0;
@@ -217,7 +222,7 @@
     font-weight: 700;
 }
 
-.second-span {
+.first-span {
   display: block;
   position: absolute;
   top: 0;
@@ -228,12 +233,9 @@
   height: 100%;
   background-color: rgba(0,0,0,.1);
   transform: translateX(-103%);
-  &::hover {
-    transform: translateX 0;
-  }
 }
 
-.third-span {
+.second-span {
   display: block;
     position: relative;
     z-index: 2;
