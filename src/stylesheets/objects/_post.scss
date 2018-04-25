@@ -67,7 +67,7 @@
 
 .post-images {
   width: 100%;
-  max-width: 1000px;
+  max-width: $max;
   padding: 0 1em;
   margin: 0 auto 2em;
   @include bp(medium){
@@ -139,9 +139,41 @@
 // custom style
 
 .post-category {
-  display: inline-block;
-  text-transform: capitalize;
-  position: relative;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  @include bp(medium){
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-left: -15px;
+    margin-right: -15px;
+    flex-direction: row;
+  }
+  a {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    border: 0;
+    background: 0 0;
+    position: relative;
+    padding: 1em;
+    margin: -1em;
+    overflow: visible;
+    font-size: 14px;
+    line-height: 22px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    color: $base;
+    cursor: pointer;
+  }
+  .outer-span {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
   .arrow {
     fill: $grey;
     display: inline-block;
@@ -149,47 +181,51 @@
     margin-bottom: 2px;
     width: 6px;
     height: 10px;
-   }
-   .outer-span{
-     display: inline-flex;
-     flex-flow: row nowrap;
-     align-items: center;
+    transition: all 0.3s ease-in;
   }
-  a {
-    transition: all .3s
-  }
-  a:hover .first-span{
-    transform: translateY(0);
-  }
-}
-.inner-span {
-  display: block;
+  .inner-span {
+    display: block;
     position: relative;
     padding-left: 0;
     padding-right: 25px;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-}
-
-.first-span {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,.1);
-  transform: translateX(-103%);
-}
-
-.second-span {
-  display: block;
+  }
+  .first-span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.1);
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in;
+  }
+  .second-span {
+    display: block;
     position: relative;
     z-index: 2;
+    transition: all 0.3s ease-in;
+  }
+  a:hover .first-span {
+    transform: translateX(-25%);
+  }
+  a:hover .second-span {
+    transform: translateX(18%);
+  }
+  a:hover .arrow {
+    transform: translateX(-200%);
+  }
 }
+
+
+
+
+
 
 // custom style
 

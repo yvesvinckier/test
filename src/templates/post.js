@@ -148,7 +148,7 @@ class PostTemplate extends Component {
           </div>
           <div className='post-info'>
             <div className='post-info__left'>
-              <h2 className='post-info-title'>Details</h2>
+              <h2 className='post-info-title'>Catégorie</h2>
               <h3 className='post-category'>
                 <Link to={'/' + author.authorSlug + '/'}>
                   <span className='outer-span'>

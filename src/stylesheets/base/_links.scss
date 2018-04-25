@@ -10,9 +10,9 @@ a {
 	// text-decoration: underline;
 	text-decoration: none;
 	color: $base;
-	&:hover {
-		color: lighten($base,25%);
-	}
+	// &:hover {
+	// 	color: lighten($base,25%);
+	// }
 }
 
 @media (hover: none) {
