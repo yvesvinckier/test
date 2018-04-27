@@ -61,13 +61,9 @@ class PostTemplate extends Component {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
 
-      .to(
-        this.refImage,
-        0.2,
-        { y: '-30%', scale: 1, ease: Power0.easeOut },
-        '-=0.2'
-      )
-    this.animDuration = this.animation.duration()
+      .to( this.refImage, 0.2, { y: '-30%', scale: 1, ease: Power0.easeOut })
+    
+      this.animDuration = this.animation.duration()
   }
 
   updateScroll = ({ progress }) => {
