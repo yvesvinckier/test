@@ -17,7 +17,7 @@ class PostTemplate extends Component {
   componentDidMount() {
     var animation = new TimelineMax()
     animation
-      .set(this.refImage, { scale: 1.1 })
+      .set(this.refImage, { scale: 1.2 })
 
       .to(this.firstpostSubtitle, 1, {
         delay: 0.6,
@@ -37,7 +37,7 @@ class PostTemplate extends Component {
     this.scene = new Scene({
       duration: this.duration,
       triggerElement: this.wrapper,
-      triggerHook: 0.55,
+      triggerHook: 0.5,
     })
     this.scene.indicatorName = 'Preview'
     this.scene.on('progress', this.updateScroll)
@@ -47,31 +47,60 @@ class PostTemplate extends Component {
     }
 
     this.scene.addTo(this.context.scrollmagic)
+
+    this.createParagraphAnimation()
+
+    this.scene2 = new Scene({
+      triggerElement: this.postParagraphWrapper,
+      triggerHook: 0.9,
+    })
+    this.scene2.indicatorName = 'Paragraph'
+    this.scene2.on('enter', this.startAnimation)
+
+    if (process.env.NODE_ENV === 'development') {
+      this.scene2.addIndicators({ name: this.scene2.indicatorName })
+    }
+
+    this.scene2.addTo(this.context.scrollmagic)
   }
 
   destroy() {
     this.scene.destroy()
   }
+  destroyScene2() {
+    this.scene2.destroy()
+  }
 
   componentWillUnmount() {
     this.destroy()
+    this.destroyScene2()
   }
 
   createAnimation() {
     if (this.animation) this.animation.kill()
     this.animation = new TimelineMax({ paused: true })
 
-      .to(this.refImage, 0.2, { y: '-30%', scale: 1, ease: Power0.easeOut })
+      .to(this.refImage, 0.2, { y: '-=25%', scale: 1, ease: Power0.easeOut })
 
     this.animDuration = this.animation.duration()
+  }
+  createParagraphAnimation() {
+    if (this.paragraphAnimation) this.paragraphAnimation.kill()
+    this.paragraphAnimation = new TimelineMax({ paused: true })
+
+      .from(this.postCategoryWrapper, 1, {x: '-=25%', opacity: 0})
+      .from(this.postParagraphWrapper, 1, {y: '+=25%', opacity: 0}, '-=0.9')
   }
 
   updateScroll = ({ progress }) => {
     this.animation.tweenTo(this.animDuration * progress)
   }
+  startAnimation = ({ enter }) => {
+    this.paragraphAnimation.tweenTo(this.enter)
+  }
 
   duration = () => {
-    return this.wrapper.getBoundingClientRect().height * 0.8
+    return this.wrapper.getBoundingClientRect().height * 0.5
   }
 
   render() {
@@ -143,7 +172,7 @@ class PostTemplate extends Component {
             </div>
           </div>
           <div className='post-info'>
-            <div className='post-info__left'>
+            <div className='post-info__left' ref={c => { this.postCategoryWrapper = c }}>
               <h2 className='post-info-title'>Catégorie</h2>
               <h3 className='post-category'>
                 <Link to={'/' + author.authorSlug + '/'}>
@@ -164,8 +193,8 @@ class PostTemplate extends Component {
               {/* {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
                     {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)} */}
             </div>
-            <div className='post-info__right'>
-              <div className='post-description' dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
+            <div className='post-info__right' ref={c => { this.postParagraphWrapper = c }}>
+              <div ref={c => { this.postParagraph = c }} className='post-description' dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
             </div>
           </div>
           <ul className='post-images'>
