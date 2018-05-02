@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Scene } from 'scrollmagic'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
-// import find from 'lodash.find'
+import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
 import BgImg from '../components/background'
@@ -106,6 +106,7 @@ class PostTemplate extends Component {
   render() {
     // const { alt, children, reverse, sizes } = this.props
     const {
+      id,
       title,
       title2,
       slug,
@@ -115,12 +116,12 @@ class PostTemplate extends Component {
       images,
     } = this.props.data.contentfulGallery
 
-    // const { name, categoryslug } = this.props.data.contentfulCategory
+    
 
-    // const postIndex = find(
-    //     data.allContentfulGallery.edges,
-    //     ({ node: post }) => post.id === id
-    //   );
+    const postIndex = find(
+        this.props.data.allContentfulGallery.edges,
+        ({ node: post }) => post.id === id
+      );
     return (
       <div>
         <Helmet>
@@ -190,8 +191,8 @@ class PostTemplate extends Component {
                   </span>
                 </Link>
               </h3>
-              {/* {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
-                    {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)} */}
+              {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
+                    {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)}
             </div>
             <div className='post-info__right' ref={c => { this.postParagraphWrapper = c }}>
               <div ref={c => { this.postParagraph = c }} className='post-description' dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
@@ -211,6 +212,11 @@ class PostTemplate extends Component {
                 </li>
               ))}
           </ul>
+          {postIndex.next && (
+          <Link className="post-preview" to={"/" + postIndex.next.slug + "/"}>
+            <h4 className="post-preview__title">Next</h4>
+            <BgImg height={'40vh'} sizes={postIndex.next.cover.sizes} alt={postIndex.next.cover.title} title={postIndex.next.cover.title} backgroundColor={"#ffffff"} />
+          </Link>)}
         </div>
       </div>
     )
@@ -249,6 +255,32 @@ export const pageQuery = graphql`
       category {
         name
         categorySlug
+      }
+    }
+    allContentfulGallery(
+      filter: {
+        node_locale: { eq: "fr-FR" }
+      }
+      limit: 1000, 
+      sort: { fields: [date], order: DESC })  {
+      
+        edges {
+        node {
+          id
+        }
+        previous {
+          slug
+          title
+        }
+        next {
+          slug
+          title
+          cover {
+            sizes(maxWidth: 1800) {
+              ...GatsbyContentfulSizes_noBase64
+            }
+          }
+        }
       }
     }
   }
