@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
-import BgImg from '../components/Background/background'
+import BgImg from '../components/background'
 // import logo from '../images/logo.svg'
 import Helmet from 'react-helmet'
 
@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
           content='JEAN EMMANUEL RODE Photographie - Photographe culinaire spectacle à Lille'
         />
         <meta property='og:image' content={page.cover.sizes.src} />
-        <meta property='og:image:width' content='1800' />
+        <meta property='og:image:width' content='1920' />
         <meta property='og:image:height' content='1200' />
       </Helmet>
 
@@ -96,7 +96,7 @@ export const query = graphql`
           date(formatString: "M.DD.YYYY")
           cover {
             title
-            sizes(maxWidth: 1800) {
+            sizes(maxWidth: 1920) {
               ...GatsbyContentfulSizes_noBase64
             }
           }

@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 // import find from 'lodash.find'
 import Helmet from 'react-helmet'
 // import Up from '../components/up'
-import BgImg from '../components/Background/background'
+import BgImg from '../components/background'
 import { TimelineMax } from 'gsap'
 
 class PostTemplate extends Component {
