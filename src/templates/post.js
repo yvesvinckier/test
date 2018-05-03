@@ -116,12 +116,10 @@ class PostTemplate extends Component {
       images,
     } = this.props.data.contentfulGallery
 
-    
-
     const postIndex = find(
-        this.props.data.allContentfulGallery.edges,
-        ({ node: post }) => post.id === id
-      );
+      this.props.data.allContentfulGallery.edges,
+      ({ node: post }) => post.id === id
+    )
     return (
       <div>
         <Helmet>
@@ -192,7 +190,7 @@ class PostTemplate extends Component {
                 </Link>
               </h3>
               {postIndex.previous && (<Link className='post-previous' to={'/' + postIndex.previous.slug + '/'}>Previous</Link>)}
-                    {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)}
+              {postIndex.next && (<Link className='post-next' to={'/' + postIndex.next.slug + '/'}>Next</Link>)}
             </div>
             <div className='post-info__right' ref={c => { this.postParagraphWrapper = c }}>
               <div ref={c => { this.postParagraph = c }} className='post-description' dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
@@ -213,10 +211,10 @@ class PostTemplate extends Component {
               ))}
           </ul>
           {postIndex.next && (
-          <Link className="post-preview" to={"/" + postIndex.next.slug + "/"}>
-            <h4 className="post-preview__title">Next</h4>
-            <BgImg height={'40vh'} sizes={postIndex.next.cover.sizes} alt={postIndex.next.cover.title} title={postIndex.next.cover.title} backgroundColor={"#ffffff"} />
-          </Link>)}
+            <Link className='post-preview' to={'/' + postIndex.next.slug + '/'}>
+              <h4 className='post-preview__title'>Next</h4>
+              <BgImg height={'40vh'} sizes={postIndex.next.cover.sizes} alt={postIndex.next.cover.title} title={postIndex.next.cover.title} backgroundColor={'#ffffff'} />
+            </Link>)}
         </div>
       </div>
     )

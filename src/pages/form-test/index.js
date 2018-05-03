@@ -1,4 +1,6 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+import BgImg from '../../components/background'
 import Form, {
   Checkboxes,
   Input,
@@ -9,9 +11,30 @@ import Form, {
 } from 'components/Form'
 import ThankYou from 'components/ThankYou'
 
-export default function FormTestPage() {
+class FormTestPage extends React.Component {
+
+  render() {
+  
+  const page = this.props.data.contentfulPage;
+  
   return (
-    <main>
+    <div className="contact">
+
+      <Helmet>
+        <title>Contacter - JEAN EMMANUEL RODE PHOTOGRAPHE</title>
+        <meta name="description" content="Prenez contact avec JEAN EMMANUEL RODE PHOTOGRAPHE " />
+        <meta property="og:title" content="Contacter - JEAN EMMANUEL RODE PHOTOGRAPHE"/>
+        <meta property="og:image" content={page.cover.sizes.src} />
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:url" content="http://www.rode-island.com/contact/" />
+      </Helmet>
+
+      <div className="intro--contact">
+        <h2>Say —Hello</h2>
+        <BgImg height={'75vh'} sizes={page.cover.sizes} backgroundColor={"#f1f1f1"}/>
+      </div>
+      
       <div className='row'>
         <div className='columns'>
           <h2>Form Test</h2>
@@ -60,6 +83,24 @@ export default function FormTestPage() {
           </Form>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
+}
+
+export const query = graphql`
+  query ContactQuery {
+    contentfulPage {
+      title
+      slug
+      id
+      cover {
+        title
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_noBase64
+        }
+      }
+    }
+  }
+`
+export default FormTestPage

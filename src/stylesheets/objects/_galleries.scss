@@ -105,11 +105,11 @@
     li a {
       margin: 0 1em .5em 0;
       text-decoration: none;
-      font-size: 1em;
-      padding: .85em 1em;
+      font-size: 0.9em;
+      padding: .5em .7em;
       cursor: pointer;
       border: solid 1px $base;
-      border-radius: 2px;
+      // border-radius: 2px;
       &:hover {
         color: $base;
       }
