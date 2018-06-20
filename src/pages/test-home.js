@@ -5,6 +5,8 @@ import Img from 'gatsby-image'
 import BgImg from '../components/background'
 import Helmet from 'react-helmet'
 import { TimelineMax } from 'gsap'
+import DrawSVG from '../vendor/src/minified/plugins/DrawSVGPlugin.min'
+import ScrollDown from '../components/Banner/ScrollDown/index'
 
 class HomePage extends Component {
     static contextTypes = {
@@ -14,7 +16,12 @@ class HomePage extends Component {
     componentDidMount() {
       var homeAnimation = new TimelineMax()
       homeAnimation
-        .from(this.drawWhite, 3, {ease: Power2.easeOut, strokeDashoffset: 0})
+        .set(this.drawWhite, {rotation: 90, transformOrigin: 'center center', drawSVG: '0% 0%'})
+        // .fromTo(this.drawWhite, 1, {drawSVG: '0', ease: Linear.easeNone})
+        .fromTo(this.drawWhite, 2, {drawSVG: '100% 0'}, {drawSVG: '0% 0%', ease: Power4.easeInOut, delay: '1'})
+        .from(this.bcgImage, 2, {autoAlpha: 0, scale: 1.05, ease: Power4.easeInOut}, '-=1')
+        // .to(this.drawWhite, 1, {drawSVG: "100% 100%",
+        //   ease: Power1.easeOut})
     };
 
   //   var blackBlock = document.getElementsByClassName('uncover__slice');
@@ -29,9 +36,7 @@ class HomePage extends Component {
     render() {
       const posts = this.props.data.allContentfulGallery.edges
       const page = this.props.data.contentfulHome
-      const coverImage = this.props.data.contentfulHome.cover.sizes.src
-      var path = document.querySelector('#draw-white')
-      console.log(path.length)
+      const coverImage = page.cover.sizes.src
 
       return (
 
@@ -55,14 +60,15 @@ class HomePage extends Component {
           </Helmet>
 
           <div className='slider' ref={c => { this.slider = c }}>
-
-            <BgImg
-            className = 'heroImage'
-          height={'100vh'}
-          sizes={page.cover.sizes}
-          alt={page.cover.title}
-          title={page.cover.title}
-        />
+            <div ref={c => { this.bcgImage = c }}>
+              <BgImg
+                className='heroImage'
+                height={'100vh'}
+                sizes={page.cover.sizes}
+                alt={page.cover.title}
+                title={page.cover.title}
+              />
+            </div>
             <div className='item'>
               <svg className='svg-image' xmlns='http://www.w3.org/2000/svg'>
                 <image width='100%' height='100%' xlinkHref={coverImage} mask='url(#donutmask)' />
@@ -70,19 +76,15 @@ class HomePage extends Component {
               <svg className='svg-defs' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
                 <defs>
                   <mask id='donutmask'>
-
                     <circle id='outer' cx='50%' cy='50%' r='25%' fill='white' />
                     <circle id='inner' cx='50%' cy='50%' r='16%' />
-                    {/* <ellipse id="inner" cx="40%" cy="40%" rx="20%" ry="20%" ref={c => { this.circleInner = c }}/> */}
                   </mask>
                 </defs>
               </svg>
               <svg className='white-circle'>
-                <circle ref={c => { this.drawWhite = c }} id='draw-white' cx='50%' cy='50%' r='20%' stroke='red' strokeWidth='150' fill='none' strokeDasharray='1400' strokeDashoffset='1400' />
+                <circle ref={c => { this.drawWhite = c }} id='draw-white' cx='50%' cy='50%' r='20%' stroke='white' strokeWidth='150' fill='none' />
               </svg>
             </div>
-
-            {/* <img src = {coverImage} className=''/> */}
 
             {/* <div className="uncover__slices uncover__slices--vertical">
             <div className="uncover__slice"></div>
@@ -135,6 +137,7 @@ class HomePage extends Component {
               </ul>
             </div>
           </div>
+          <ScrollDown />
         </div>
       )
     }
