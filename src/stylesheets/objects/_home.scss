@@ -6,13 +6,13 @@
     position: relative;
     @include bp(medium){
       top: 0;
-      position: fixed;
+      // position: fixed;
     }
     width: 100%;
     div { max-height: 750px; }
     &:before {
       content: '';
-      background: rgba(0,0,0,.2);
+      // background: rgba(0,0,0,.2);
       position: absolute;
       top: 0;
       left: 0;
@@ -60,6 +60,7 @@
     background: white;
     @include bp(medium){
       padding: 6em 2em;
+      margin-top: 8em;
     }
   }
   
