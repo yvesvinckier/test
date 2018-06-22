@@ -11,7 +11,7 @@ exports.onClientEntry = () => {
   require('gsap')
   require('whatwg-fetch')
   require('scrollmagic')
-  // require('./node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
+  require('./src/vendor/DrawSVGPlugin')
   require('custom-event-polyfill')
   require('gsap/src/uncompressed/plugins/ScrollToPlugin')
   if (process.env.NODE_ENV === 'development') {
