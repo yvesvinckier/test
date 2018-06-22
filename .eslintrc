@@ -53,7 +53,8 @@
     "describe" : false,
     "it" : false,
     "expect" : false,
-    "graphql": false
+    "graphql": false,
+    "drawSVG": false
   },
   "settings": {
     "react": {

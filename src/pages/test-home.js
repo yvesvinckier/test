@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import BgImg from '../components/background'
 import Helmet from 'react-helmet'
 import { TimelineMax } from 'gsap'
-import DrawSVG from '../vendor/src/minified/plugins/DrawSVGPlugin.min'
+import drawSVG from '../vendor/DrawSVGPlugin'
 import ScrollDown from '../components/Banner/ScrollDown/index'
 
 class HomePage extends Component {
