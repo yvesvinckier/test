@@ -1,5 +1,5 @@
 :global(.headroom) {
-  background-color: $white;
+  background-color: transparent;
   // border-bottom: 1px solid $border-color;
   height: 73px;
   left: 0;
@@ -28,4 +28,8 @@
 :global(.headroom--pinned) {
   position: fixed;
   transform: translateY(0%);
+}
+
+.headroom-wrapper {
+  background-color: transparent;
 }

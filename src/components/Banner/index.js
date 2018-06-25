@@ -17,7 +17,7 @@ export default function Banner({ children, sizes }) {
           <div className={styles.content}>{children}</div>
         </div>
       </div>
-      <ScrollDown />
+      {/* <ScrollDown /> */}
     </div>
   )
 }

@@ -24,14 +24,14 @@ export default class Bar extends PureComponent {
     return (
       <Headroom {...this.settings}>
         <div className='header__container'>
-          <Link to='/'>
+          {/* <Link to='/'>
             <svg className='blackcircle' x='0px' y='0px' viewBox='0 0 45 45'>
               <circle className='path' cx='22.5' cy='22.5' r='18.5' />
             </svg>
             <span>
               Jean-Emmanuel Rode <br />— Photographe
             </span>
-          </Link>
+          </Link> */}
 
           <div>
             <Hamburger opened={opened} onClick={toggle} />

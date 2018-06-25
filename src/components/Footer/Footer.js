@@ -7,24 +7,11 @@ const Footer = () => (
     <section className='footer__outer'>
       <section className='footer__inner'>
         <div className='footer__info'>
-          <h3>
-            <Link to='/'>JEAN EMMANUEL RODE Photograhe</Link>
-          </h3>
-          <p>
-            Copyright &copy; {new Date().getFullYear()} JEAN EMMANUEL RODE
-            Photograhe. All rights reserved.
-          </p>
-          <a
-            href='https://www.contentful.com/'
-            className='wordmark'
-            rel='nofollow'
-            // target='_blank'
-          >
-            <img src={contentful} alt='Powered by Contentful' />
-          </a>
+          
+          
         </div>
         <div className='footer__sitemap'>
-          <ul>
+          {/* <ul>
             <li>
               <Link to='/'>Home</Link>
             </li>
@@ -37,7 +24,7 @@ const Footer = () => (
             <li>
               <Link to='/contact/'>Contact</Link>
             </li>
-          </ul>
+          </ul> */}
           <ul>
             <li>
               <a href='https://www.facebook.com/'>
