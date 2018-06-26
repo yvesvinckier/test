@@ -44,13 +44,13 @@ class About extends Component {
   return (
     <div>
       <Helmet>
-        <title>A propos de JEAN EMMANUEL RODE PHOTOGRAPHE</title>
-        <meta name='description' content='En savoir plus sur JEAN EMMANUEL RODE - Photographe' />
-        <meta property='og:title' content='A propos de JEAN EMMANUEL RODE PHOTOGRAPHE' />
+        <title>Mowi Design</title>
+        {/* <meta name='description' content=' ' />
+        <meta property='og:title' content=' ' />
         <meta property='og:image' content={aboutImages[0].sizes.src} />
         <meta property='og:image:width' content='800' />
         <meta property='og:image:height' content='1000' />
-        <meta property='og:url' content='http://www.rode-island.com/about/' />
+        <meta property='og:url' content='http://www.rode-island.com/about/' /> */}
       </Helmet>
 
       

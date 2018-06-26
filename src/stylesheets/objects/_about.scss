@@ -2,6 +2,12 @@
 *  About   *
 * ------- */
 
+.black {
+  background-color: black;
+  width: 100%;
+  height: 100%
+}
+
 
 .home-scroll-invite {
   pointer-events: none;
@@ -112,7 +118,7 @@ svg#Wave {
   fill:none;
   stroke:white;
   stroke-width:26.6579;
-  stroke-miterlimit:10
+  stroke-miterlimit:10;
 }
 .st1 {
   fill:#C0CEE0
