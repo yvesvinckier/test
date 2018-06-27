@@ -5,20 +5,23 @@ const Footer = () => (
   <footer className='footer'>
     <section className='footer__outer'>
       <section className='footer__inner'>
-        <div className='footer__info' />
+        <div className='footer__info'>
+          <h3><Link to='/'>MOWI INC.</Link></h3>
+          <p>COPYRIGHT &copy; {new Date().getFullYear()} - TOUS DROITS RÉSEVÉS.</p>
+        </div>
         <div className='footer__sitemap'>
           <ul>
             <li>
-              <Link to='/'>Engagement de confidentialité |</Link>
+              <Link to='/'>Engagement de confidentialité | </Link>
             </li>
             <li>
-              <Link to='/'>Utilisation des cookies |</Link>
+              <Link to='/'> Utilisation des cookies | </Link>
             </li>
             <li>
-              <Link to='/'>Conditions d’utilisation |</Link>
+              <Link to='/'> Conditions d’utilisation | </Link>
             </li>
             <li>
-              <Link to='/'>Mentions légales |</Link>
+              <Link to='/'> Mentions légales </Link>
             </li>
           </ul>
           <ul>
