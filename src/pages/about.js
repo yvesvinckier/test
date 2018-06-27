@@ -217,7 +217,7 @@ export const query = graphql`
         ...GatsbyImageSharpSizes
       }
     }
-    heroImage2: imageSharp(id: { regex: "/banners/caroline-attwood-301746-unsplash.jpg/" }) {
+    heroImage2: imageSharp(id: { regex: "/banners/foods-to-treat-treat-eczema-salmon-and-other-omega-3s.jpg/" }) {
       sizes(
         quality: 100
         maxWidth: 1920
