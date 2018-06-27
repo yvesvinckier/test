@@ -63,7 +63,7 @@ class IndexPage extends Component {
         .from(this.titleElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
         .from(this.paragraphElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
         .from(this.linkElevage, 0.5, {autoAlpha: 0, x: '40px'}, '-=0.8')
-        .from(this.imgElevage, 2, {autoAlpha: 0, x: '-100px', ease: Power4.easeInOut}, '-=1.9')
+        .from(this.imgElevage, 2, {autoAlpha: 0, x: '-100px', ease: Power4.easeInOut}, '-=1.8')
 
       this.animDuration = this.animation.duration()
     }
