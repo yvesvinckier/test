@@ -102,10 +102,33 @@ svg#Calque_1 {
 
 .stWave {
   fill:none;
-  stroke:#000000;
+  stroke:$base;
   stroke-width:3.761;
   stroke-linecap:round;
   stroke-miterlimit:10
+}
+.stDrop {
+  fill:none;
+  stroke:white;
+  stroke-width:3.761;
+  stroke-linecap:round;
+  stroke-miterlimit:10
+}
+svg#Toque {
+  height: 56px;
+}
+.SVGHealthy {
+  fill:none;
+  stroke:$base;
+  stroke-width:3.761;
+  stroke-linecap:round;
+  stroke-miterlimit:10
+}
+svg#Drop {
+  height: 54px;
+}
+svg#Healthy {
+  height: 52px
 }
 svg#Wave {
   height: 40px
@@ -228,6 +251,14 @@ svg#Wave {
       transition: .708s ease-out;
       color: white
     }
+    .link--line-to-left2 {
+      display: inline-block;
+      padding-left: 85px;
+      padding-right: 85px;
+      position: relative;
+      transition: .708s ease-out;
+      color: white
+    }
     .field {
       text-transform: uppercase;
       font-weight: 500;
@@ -266,6 +297,66 @@ svg#Wave {
     padding-left: 2em;
     margin: 0 0 1em 0;
     border-radius: 2px;
+    &:hover {
+      .link--line-to-left:before {
+        width: 0;
+      }
+      .link--line-to-left3:before {
+        width: 0;
+      }
+      .link--line-to-left:after {
+        width: 72px;
+        transform: translateX(82px)
+      }
+      .link--line-to-left3:after {
+        width: 72px;
+        transform: translateX(0px)
+      }
+      .link--line-to-left3 {
+        padding-right: 82px
+      }
+      .link--line-to-left {
+        padding-left: 0px;
+      }
+      .link--line-to-left2:before {
+        width: 0;
+      }
+      .link--line-to-left2:after {
+        width: 72px;
+        transform: translateX(82px)
+      }
+      .link--line-to-left2 {
+        padding-left: 0px;
+      }
+    }
+    .link--line-to-left3 {
+      display: inline-block;
+      padding-left: 85px;
+      position: relative;
+      transition: .708s ease-out
+    }
+    .link--line-to-left3:before {
+      transition: .6s ease-out .108s;
+      content: '';
+      display: inline-block;
+      width: 72px;
+      height: 1px;
+      background-color: $base;
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+    .link--line-to-left3:after {
+      transition: .6s ease-out;
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 1px;
+      background-color: #374818;
+      position: absolute;
+      top: 50%;
+      right: 0;
+    }
     h3 {
       transform: translateX(2px);
       letter-spacing: 0.10526em;
@@ -307,8 +398,8 @@ svg#Wave {
       transition: .708s ease-out
     }
     .field {
-      text-transform: uppercase;
-      font-weight: 500;
+      // text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.04em;
       font-size : 0.8em
     }
@@ -319,10 +410,21 @@ svg#Wave {
     display: inline-block;
     width: 72px;
     height: 1px;
-    background-color: black;
+    background-color: $base;
     position: absolute;
     top: 50%;
     left: 0;
+}
+.link--line-to-left:after {
+  transition: .6s ease-out;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 1px;
+  background-color: #374818;
+  position: absolute;
+  top: 50%;
+  right: 0;
 }
 .two {
   flex-direction: row-reverse;
