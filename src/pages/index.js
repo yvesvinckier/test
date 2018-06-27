@@ -136,41 +136,41 @@ class IndexPage extends Component {
               </div>
             </div>
             <div className='cell cell--half bucket-list'>
-            <Link to='/'>
-              <svg version='1.1' id='Wave' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 111.5 65.75' xmlSpace='preserve'>
-                <path className='stWave' ref={c => { this.wave5 = c }} d='M5.415,54.488c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+              <Link to='/'>
+                <svg version='1.1' id='Wave' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 111.5 65.75' xmlSpace='preserve'>
+                  <path className='stWave' ref={c => { this.wave5 = c }} d='M5.415,54.488c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
                   c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
                   c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
-                />
-                <path className='stWave' ref={c => { this.wave4 = c }} d='M5.415,42.93c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  />
+                  <path className='stWave' ref={c => { this.wave4 = c }} d='M5.415,42.93c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
                   c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
                   c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
-                />
-                <path className='stWave' ref={c => { this.wave3 = c }} d='M5.415,31.372c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  />
+                  <path className='stWave' ref={c => { this.wave3 = c }} d='M5.415,31.372c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
                   c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
                   c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
-                />
-                <path className='stWave' ref={c => { this.wave2 = c }} d='M5.415,19.814c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  />
+                  <path className='stWave' ref={c => { this.wave2 = c }} d='M5.415,19.814c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
                   c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
                   c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
-                />
-                <path className='stWave' ref={c => { this.wave1 = c }} d='M5.415,8.256c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  />
+                  <path className='stWave' ref={c => { this.wave1 = c }} d='M5.415,8.256c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
                   c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
                   c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
-                />
-              </svg>
-              <h3 ref={c => { this.catElevage = c }}>L'élevage</h3>
-              <h2 ref={c => { this.keyWordUnique = c }}>Unique</h2>
-              <h4 ref={c => { this.titleElevage = c }}>Parce que nous élevons <br />nos saumons avec soin</h4>
-              <p ref={c => { this.paragraphElevage = c }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-              <div ref={c => { this.linkElevage = c }} className='link link--line-to-left'>
-                <div className='field'>Notre process d’élevage</div>
-              </div>
+                  />
+                </svg>
+                <h3 ref={c => { this.catElevage = c }}>L'élevage</h3>
+                <h2 ref={c => { this.keyWordUnique = c }}>Unique</h2>
+                <h4 ref={c => { this.titleElevage = c }}>Parce que nous élevons <br />nos saumons avec soin</h4>
+                <p ref={c => { this.paragraphElevage = c }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                <div ref={c => { this.linkElevage = c }} className='link link--line-to-left'>
+                  <div className='field'>Notre process d’élevage</div>
+                </div>
               </Link>
             </div>
           </div>
@@ -180,8 +180,7 @@ class IndexPage extends Component {
             </div>
             <div className='cell cell--half bucket-list v2'>
               <svg version='1.1' id='Healthy' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 72 63' xmlSpace='preserve'>
-                <path className='SVGHealthy' d='M44.409,56.707c-2.335,1.941-3.849,3.079-3.849,3.079s-29.518-21.69-29.518-37.193c0-15.502,17.984-26.124,29.461-16.27l0,0c13.014-9.667,28.911,0.768,28.911,16.27c0,9.328-10.447,20.897-18.769,28.632'
-                />
+                <path className='SVGHealthy' d='M44.409,56.707c-2.335,1.941-3.849,3.079-3.849,3.079s-29.518-21.69-29.518-37.193c0-15.502,17.984-26.124,29.461-16.27l0,0c13.014-9.667,28.911,0.768,28.911,16.27c0,9.328-10.447,20.897-18.769,28.632' />
                 <polyline className='SVGHealthy' points='2.588,35.21 26.426,35.21 33.292,19.249 42.457,38.682 45.947,23.5 62.16,23.53 ' />
               </svg>
               <h3>bien-être</h3>
@@ -201,12 +200,11 @@ class IndexPage extends Component {
             </div>
             <div className='cell cell--half bucket-list'>
               <svg version='1.1' id='Toque' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 69 73' xmlSpace='preserve'>
-                <path className='stWave' d='M34.4,1.8c-9,0-16.6,5.8-19.3,13.9c-7.4,2-12.8,8.7-12.8,16.6c0,8.1,5.7,14.9,13.3,16.7v20.9 c0,0.4,0.4,0.8,0.8,0.8h36c0.4,0,0.8-0.4,0.8-0.8V49.1c7.6-1.8,13.3-8.6,13.3-16.7c0-8-5.5-14.7-12.8-16.6 C50.9,7.7,43.3,1.8,34.4,1.8z'
-                />
-                <line className='stWave' x1='44.274' y1='26.557' x2='44.274' y2='47.5'/>
-                <line className='stWave' x1='34.365' y1='16.183' x2='34.365' y2='47.5'/>
-                <line className='stWave' x1='24.456' y1='26.557' x2='24.456' y2='47.5'/>
-                <line className='stWave' x1='15.575' y1='63.395' x2='53.155' y2='63.395'/>
+                <path className='stWave' d='M34.4,1.8c-9,0-16.6,5.8-19.3,13.9c-7.4,2-12.8,8.7-12.8,16.6c0,8.1,5.7,14.9,13.3,16.7v20.9 c0,0.4,0.4,0.8,0.8,0.8h36c0.4,0,0.8-0.4,0.8-0.8V49.1c7.6-1.8,13.3-8.6,13.3-16.7c0-8-5.5-14.7-12.8-16.6 C50.9,7.7,43.3,1.8,34.4,1.8z' />
+                <line className='stWave' x1='44.274' y1='26.557' x2='44.274' y2='47.5' />
+                <line className='stWave' x1='34.365' y1='16.183' x2='34.365' y2='47.5' />
+                <line className='stWave' x1='24.456' y1='26.557' x2='24.456' y2='47.5' />
+                <line className='stWave' x1='15.575' y1='63.395' x2='53.155' y2='63.395' />
               </svg>
               <h3>INSPIRATION DU MOMENT</h3>
               <h2>DÉGUSTATIONS </h2>
@@ -220,17 +218,14 @@ class IndexPage extends Component {
           <Banner sizes={aboutImages[6].sizes} >
             <div className='wwf'>
               <svg version='1.1' id='Drop' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 48 66' xmlSpace='preserve'>
-                <path className='stDrop' d='M42.535,31.633L42.535,31.633L23.782,1.792L5.028,31.633l0,0c-1.53,2.914-2.258,6.225-2.258,9.745c0,11.604,9.407,21.011,21.011,21.011c11.604,0,21.011-9.407,21.011-21.011C44.793,37.858,44.065,34.547,42.535,31.633z'
-                />
+                <path className='stDrop' d='M42.535,31.633L42.535,31.633L23.782,1.792L5.028,31.633l0,0c-1.53,2.914-2.258,6.225-2.258,9.745c0,11.604,9.407,21.011,21.011,21.011c11.604,0,21.011-9.407,21.011-21.011C44.793,37.858,44.065,34.547,42.535,31.633z' />
                 <line className='stDrop' x1='23.782' y1='1.792' x2='23.782' y2='62.369' />
                 <line className='stDrop' x1='16.205' y1='23.275' x2='22.995' y2='30.066' />
                 <line className='stDrop' x1='16.205' y1='31.748' x2='22.995' y2='38.538' />
                 <line className='stDrop' x1='16.205' y1='40.221' x2='22.995' y2='47.011' />
                 <line className='stDrop' x1='16.205' y1='48.693' x2='22.995' y2='55.484' />
-                <path className='stDrop' d='M33.654,53.756c-0.45,0.359-0.92,0.694-1.409,1.003c-0.559,0.354-1.141,0.673-1.745,0.956'
-                />
-                <path className='stDrop' d='M34.988,30.151c2.868,2.868,4.642,6.83,4.642,11.206c0,3.023-0.846,5.848-2.315,8.252'
-                />
+                <path className='stDrop' d='M33.654,53.756c-0.45,0.359-0.92,0.694-1.409,1.003c-0.559,0.354-1.141,0.673-1.745,0.956' />
+                <path className='stDrop' d='M34.988,30.151c2.868,2.868,4.642,6.83,4.642,11.206c0,3.023-0.846,5.848-2.315,8.252' />
               </svg>
               <h3>ENGAGEMENT</h3>
               <h2 className='titleRespect'>RESPECT</h2>
