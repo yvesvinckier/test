@@ -111,7 +111,8 @@ svg#Wave {
   height: 40px
 }
 .one {
-  padding-top: 250px
+  padding-top: 250px;
+  padding-bottom: 250px
 }
 
 .st0 {
@@ -177,7 +178,11 @@ svg#Wave {
     width: 100%;
     div { max-height: 750px; }
   }
+  .titleRespect{
+    font-weight: 700 !important;
+  }
   .wwf {
+    max-width: 800px;
     h3 {
       transform: translateX(2px);
       letter-spacing: 0.10526em;
@@ -292,6 +297,7 @@ svg#Wave {
       font-weight: 300;
       padding-top: 12px;
       padding-bottom: 30px;
+      text-align: justify;
 
     }
     .link--line-to-left {
@@ -320,8 +326,10 @@ svg#Wave {
 }
 .two {
   flex-direction: row-reverse;
-  padding-top: 250px;
-  padding-bottom: 250px
+  // padding-top: 250px;
+}
+.rightText {
+  text-align: right;
 }
 .v2 {
   display: flex;

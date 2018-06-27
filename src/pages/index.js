@@ -54,16 +54,16 @@ class IndexPage extends Component {
       if (this.animation) this.animation.kill()
       this.animation = new TimelineMax({ paused: true })
         .fromTo(this.wave1, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut})
-        .fromTo(this.wave2, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.3')
-        .fromTo(this.wave3, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.3')
-        .fromTo(this.wave4, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.3')
-        .fromTo(this.wave5, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.3')
-        .from(this.catElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.3')
-        .from(this.keyWordUnique, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.3')
-        .from(this.titleElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.3')
-        .from(this.paragraphElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.3')
-        .from(this.linkElevage, 0.5, {autoAlpha: 0, x: '40px'}, '-=0.3')
-        .from(this.imgElevage, 2, {autoAlpha: 0, x: '-100px', ease: Power4.easeInOut}, '-=1.3')
+        .fromTo(this.wave2, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.4')
+        .fromTo(this.wave3, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.4')
+        .fromTo(this.wave4, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.4')
+        .fromTo(this.wave5, 0.5, {drawSVG: '0 0'}, {drawSVG: '0 100%', ease: Power4.easeInOut}, '-=0.4')
+        .from(this.catElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
+        .from(this.keyWordUnique, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
+        .from(this.titleElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
+        .from(this.paragraphElevage, 0.5, {autoAlpha: 0, y: '40px'}, '-=0.5')
+        .from(this.linkElevage, 0.5, {autoAlpha: 0, x: '40px'}, '-=0.8')
+        .from(this.imgElevage, 2, {autoAlpha: 0, x: '-100px', ease: Power4.easeInOut}, '-=1.8')
 
       this.animDuration = this.animation.duration()
     }
@@ -202,12 +202,55 @@ class IndexPage extends Component {
                   c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
                 />
               </svg>
-              <h3>L'élevage</h3>
-              <h2>Unique</h2>
-              <h4>Parce que nous élevons <br />nos saumons avec soin</h4>
+              <h3>bien-être</h3>
+              <h2>healthy</h2>
+              <h4 className='rightText'>les Saumons Mowi <br />un bienfait <br />pour notre organisme</h4>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+              <div className='link link--line-to-left'>
+                <div className='field'>Les bienfaits du saumon</div>
+              </div>
+            </div>
+          </div>
+          <div className='grid grid--container one'>
+            <div className='cell cell--half slider--about'>
+              <div className='black'>
+                <Img sizes={aboutImages[3].sizes} />
+              </div>
+            </div>
+            <div className='cell cell--half bucket-list'>
+              <svg version='1.1' id='Wave' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 111.5 65.75' xmlSpace='preserve'>
+                <path className='stWave' d='M5.415,54.488c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
+                  c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
+                  c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
+                />
+                <path className='stWave' d='M5.415,42.93c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
+                  c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
+                  c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
+                />
+                <path className='stWave' d='M5.415,31.372c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
+                  c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
+                  c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
+                />
+                <path className='stWave' d='M5.415,19.814c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
+                  c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
+                  c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
+                />
+                <path className='stWave' d='M5.415,8.256c5.423,0,8.167,1.097,10.819,2.159c2.408,0.965,4.684,1.875,9.341,1.875
+                  c4.658,0,6.934-0.91,9.343-1.875c2.654-1.061,5.397-2.159,10.823-2.159s8.169,1.097,10.823,2.159
+                  c2.409,0.965,4.686,1.875,9.345,1.875s6.937-0.91,9.347-1.875c2.654-1.061,5.397-2.159,10.824-2.159
+                  c5.425,0,8.169,1.097,10.823,2.159c2.411,0.965,4.688,1.875,9.347,1.875'
+                />
+              </svg>
+              <h3>INSPIRATION DU MOMENT</h3>
+              <h2>DÉGUSTATIONS </h2>
+              <h4>DES INSPIRATIONS <br /> À DÉGUSTER TOUTE L’ANNÉE</h4>
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
               <div className='link link--line-to-left'>
-                <div className='field'>NOTRE PROCESS D’élevage</div>
+                <div className='field'>NOS RECETTES DU MOMENT</div>
               </div>
             </div>
           </div>
@@ -241,7 +284,7 @@ class IndexPage extends Component {
                 />
               </svg>
               <h3>ENGAGEMENT</h3>
-              <h2>RESPECT</h2>
+              <h2 className='titleRespect'>RESPECT</h2>
               <h4>L'impact sur l'environnement <br />est une préoccupation majeure</h4>
               <div className='p_wwf'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </div>
               <div className='link link--line-to-left2'>
