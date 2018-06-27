@@ -1,30 +1,26 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import contentful from 'images/contentful.svg'
 
 const Footer = () => (
   <footer className='footer'>
     <section className='footer__outer'>
       <section className='footer__inner'>
-        <div className='footer__info'>
-          
-          
-        </div>
+        <div className='footer__info' />
         <div className='footer__sitemap'>
-          {/* <ul>
+          <ul>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/'>Engagement de confidentialité |</Link>
             </li>
             <li>
-              <Link to='/about/'>About</Link>
+              <Link to='/'>Utilisation des cookies |</Link>
             </li>
             <li>
-              <Link to='/galeries/'>Galeries</Link>
+              <Link to='/'>Conditions d’utilisation |</Link>
             </li>
             <li>
-              <Link to='/contact/'>Contact</Link>
+              <Link to='/'>Mentions légales |</Link>
             </li>
-          </ul> */}
+          </ul>
           <ul>
             <li>
               <a href='https://www.facebook.com/'>
